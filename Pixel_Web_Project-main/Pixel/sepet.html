@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="sepet.css">
+    <title>Pixel Shop</title>
+</head>
+
+<body>
+    
+    <nav class="container">
+            <div class="logo">
+                <a href="main.html"><h1>Pixel Shop</h1></a>  
+            </div>
+             <div class="list">  
+                <ul>
+                    <li><a href="main.html"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-user"></i> Hesabım</a></li>
+                    <li><a href="sepet.html"><i class="fa-solid fa-cart-shopping"></i> Sepetim</a></li>     
+                </ul>
+            </div> 
+    </nav>
+    
+    <section>
+      <div class="shop">
+        <div class="products">
+            <div class="product">
+                <span class="product-name">Ürün 1</span>
+                <span class="product-price">100 TL</span>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+            <div class="product">
+                <span class="product-name">Ürün 2</span>
+                <span class="product-price">150 TL</span>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+            <div class="product">
+                <span class="product-name">Ürün 3</span>
+                <span class="product-price">200 TL</span>
+                <button class="add-to-cart">Sepete Ekle</button>
+            </div>
+        </div>
+        <div class="cart">
+            <h2>Alışveriş Sepeti</h2>
+            <div class="cart-items">
+                <!-- Sepete eklenen ürünler buraya eklenecek -->
+            </div>
+            <div class="total-price">
+                <span class="total-label">Toplam:</span>
+                <span class="total-value">0 TL</span>
+            </div>
+            <button class="order-button">Sipariş Ver</button>
+        </div>
+    </div>
+
+  </section>
+
+    <script src="sepet.js"></script>
+
+    
+</body>
+</html>
