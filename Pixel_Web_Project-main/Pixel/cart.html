@@ -18,7 +18,7 @@
              <div class="list">  
                 <ul>
                     <li><a href="main.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                    <li><a href="login.html"><i class="fa-solid fa-user"></i> Hesabım</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-user"></i> Account</a></li>
                     <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Shopping &nbsp; Cart</a></li>     
                 </ul>
             </div> 
@@ -26,33 +26,47 @@
     
     <section>
       <div class="shop">
-        <div class="products">
-            <div class="product">
-                <span class="product-name">Ürün 1</span>
-                <span class="product-price">100 TL</span>
-                <button class="add-to-cart">Sepete Ekle</button>
-            </div>
-            <div class="product">
-                <span class="product-name">Ürün 2</span>
-                <span class="product-price">150 TL</span>
-                <button class="add-to-cart">Sepete Ekle</button>
-            </div>
-            <div class="product">
-                <span class="product-name">Ürün 3</span>
-                <span class="product-price">200 TL</span>
-                <button class="add-to-cart">Sepete Ekle</button>
-            </div>
         </div>
         <div class="cart">
-            <h2>Alışveriş Sepeti</h2>
+            <h2>Shopping &nbsp; Cart</h2>
             <div class="cart-items">
                 <!-- Sepete eklenen ürünler buraya eklenecek -->
+                <div class="cart-item">
+                    <span class="cart-item-name">ASUS VivoBook 15</span>
+                    <span class="cart-item-price">3499.99</span>
+                    <div class="quantity">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-value">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="delete-item">Delete</button>
+                </div>
+                <div class="cart-item">
+                    <span class="cart-item-name">Apple MacBook Pro</span>
+                    <span class="cart-item-price">4399.99</span>
+                    <div class="quantity">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-value">2</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="delete-item">Delete</button>
+                </div>
+                <div class="cart-item">
+                    <span class="cart-item-name">Huawei MateBook D</span>
+                    <span class="cart-item-price">3199.99</span>
+                    <div class="quantity">
+                        <button class="decrease-quantity">-</button>
+                        <span class="quantity-value">1</span>
+                        <button class="increase-quantity">+</button>
+                    </div>
+                    <button class="delete-item">Delete</button>
+                </div>
             </div>
             <div class="total-price">
-                <span class="total-label">Toplam:</span>
-                <span class="total-value">0 TL</span>
+                <span class="total-label">Total:</span>
+                <span class="total-value">15499.96 TL</span>
             </div>
-            <button class="order-button">Sipariş Ver</button>
+            <button class="order-button">Place Orde</button>
         </div>
     </div>
 

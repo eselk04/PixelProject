@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
   const orderButton = document.querySelector('.order-button');
@@ -43,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
           total += price * quantity;
       });
 
-      totalElement.innerText = total + ' TL';
+      totalElement.innerText =total + ' TL';
 
   }
 
