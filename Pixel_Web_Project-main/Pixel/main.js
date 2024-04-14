@@ -275,9 +275,6 @@ btn.addEventListener('click',()=>{
                 <h3>${product.name}</h3> 
                 <span class="${getClassByRate(price)}">${product.price}</span>
             </div>
-            <a class='sepet' href='#'><i class="fa-solid fa-cart-shopping"></i>Sepete Ekle</a>
-           
-    
         `
         const productContainers = document.querySelectorAll(".product-container");
 

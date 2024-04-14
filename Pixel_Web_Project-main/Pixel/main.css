@@ -42,14 +42,6 @@ body{
    
 }
 
-/*
-.logo{
-    display:flex;
-    fle-direction:column;
-    align-items:center;
-}
-*/
-
 .list ul { 
     width:400px;
     display:flex;
@@ -126,7 +118,13 @@ main{
     position: relative;
     overflow: hidden;
     border-radius: 3px;
+    transition: transform 0.3s;
 }
+
+.product:hover{
+    transform: scale(1.1);
+}
+
 .product img{
     width: 100%;
 }

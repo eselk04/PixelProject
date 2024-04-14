@@ -231,78 +231,9 @@ window.onload = function() {
     
     document.getElementById("product-name").textContent = product.name;
     document.getElementById("product-image").src = `../images/product${productId}.jpg`;
-    document.getElementById("product-price").textContent = `Fiyat: ${product.price.toFixed(2)} TL`;
+    document.getElementById("product-price").textContent = `Price: ${product.price.toFixed(2)} TL`;
     document.getElementById("product-description").textContent = product.description;
     
 };
-
-document.getElementById('add-to-cart').addEventListener('click', function() {
-    var name = this.getAttribute('data-name');
-    var price = parseFloat(this.getAttribute('data-price'));
-    var cart = JSON.parse(localStorage.getItem('cart')) || [];
-    var item = cart.find(item => item.name === name);
-    if (item) {
-        item.quantity++;
-    } else {
-        cart.push({ name: name, price: price, quantity: 1 });
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCart(); 
-    alert('Ürün sepete eklendi!');
-});
-
-
-
-document.getElementById("add-to-cart").addEventListener("click", () => {
-  
-    console.log(`Ürün ${product.name} sepete eklendi.`);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-function updateCart() {
-    var cartItemsElement = document.getElementById('cart-items');
-    var cartTotalElement = document.getElementById('cart-total');
-    var cartEmptyMessage = document.getElementById('cart-empty-message');
-    var cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    cartItemsElement.innerHTML = '';
-    var total = 0;
-    cart.forEach(item => {
-        var li = document.createElement('li');
-        li.textContent = item.name + ' - ' + item.price + ' - ' + item.quantity;
-        cartItemsElement.appendChild(li);
-        total += item.price * item.quantity;
-    });
-
-    cartTotalElement.textContent = 'Toplam: $' + total.toFixed(2);
-
-    if (cart.length === 0) {
-        cartEmptyMessage.style.display = 'block';
-    } else {
-        cartEmptyMessage.style.display = 'none';
-    }
-}
-
-updateCart(); // Sayfa yüklendiğinde sepeti güncelle
-
-
-
-
-
-
-
-
-
-
 
 
