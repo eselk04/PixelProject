@@ -51,6 +51,7 @@ body{
 
 nav a {
     color:var(--var--white);
+    transition: color 0.5s ease;
 }
 nav a:hover{
     color:var(--var--twice);

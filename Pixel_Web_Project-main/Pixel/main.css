@@ -46,11 +46,12 @@ body{
     width:400px;
     display:flex;
     align-items:baseline;
-    justify-content:space-between;
+    justify-content:space-between;  
 }
 
 nav a {
     color:var(--var--white);
+    transition: color 0.5s ease;
 }
 nav a:hover{
     color:var(--var--twice);
