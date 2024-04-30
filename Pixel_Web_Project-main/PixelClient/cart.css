@@ -40,6 +40,10 @@ body{
     position:relative;
    
 }
+#ordernavi
+{
+  color: white;
+}
 
 .list ul { 
     width:400px;

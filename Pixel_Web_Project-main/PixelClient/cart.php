@@ -115,7 +115,7 @@ echo '
  <span class="total-label">Total:</span>
  <span class="total-value">' .  $totalvalue . ' TL</span>
 </div>
-<button class="order-button">Place Order</button>
+<button  class="order-button"><a id="ordernavi" href="purchase.php">Place Order<a></button>
 </div>
 </section>';
 
