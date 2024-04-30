@@ -19,16 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       const cartItem = document.createElement('div');
       cartItem.classList.add('cart-item');
-      cartItem.innerHTML = `
-          <span class="cart-item-name">${productName}</span>
-          <span class="cart-item-price">${productPrice}</span>
-          <div class="quantity">
-              <button class="decrease-quantity">-</button>
-              <span class="quantity-value">1</span>
-              <button class="increase-quantity">+</button>
-          </div>
-          <button class="delete-item">Sil</button>
-      `;
+      
 
       cartItemsContainer.appendChild(cartItem);
 
@@ -61,10 +52,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.addEventListener('click', function(event) {
-      if (event.target.classList.contains('delete-item')) {
-          event.target.parentElement.remove();
+     /* if (event.target.classList.contains('delete-item')) {
+          event.target.parentElement.parentElement.remove();
           updateTotal();
-      } else if (event.target.classList.contains('decrease-quantity')) {
+      }  */
+       if (event.target.classList.contains('decrease-quantity')) {
           const quantityElement = event.target.nextElementSibling;
           let quantity = parseInt(quantityElement.innerText);
           if (quantity > 1) {

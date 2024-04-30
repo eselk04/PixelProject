@@ -218,9 +218,6 @@ const laptopProducts = [
     }
    
   ];
-const API_URL = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1'
-const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-const SEARCH_API = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
 
 const main=document.getElementById('main')
 const sform=document.getElementById('sform')
@@ -269,12 +266,8 @@ btn.addEventListener('click',()=>{
         productEl.classList.add('product')
 
         productEl.innerHTML=`  
-     
-            <a href='product.html?id=${product.id}'><img style="width  = "100%; height = "50%"" src="../images/product${product.id}.jpg" alt="${product.title}"></a>
-            <div class="product-info">
-                <h3>${product.name}</h3> 
-                <span class="${getClassByRate(price)}">${product.price}</span>
-            </div>
+       
+          
         `
         const productContainers = document.querySelectorAll(".product-container");
 

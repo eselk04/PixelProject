@@ -11,22 +11,12 @@
 
 <body>
     
-    <nav class="container">
-            <div class="logo">
-                <a href="main.html"><h1>Pixel Shop</h1></a>  
-            </div>
-             <div class="list">  
-                <ul>
-                    <li><a href="main.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                    <li><a href="login.html"><i class="fa-solid fa-user"></i> Account</a></li>
-                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Shopping &nbsp; Cart</a></li>     
-                </ul>
-            </div> 
-    </nav>
-
+  <?php 
+  require "navbar.php";
+  ?>
     <section>   
         <div class="register">
-            <form action="" id="form">
+            <form action="register.php" id="form" method = "POST">
             <h1>Register</h1>
             <div class="input-group">
             <label for="username">Username</label>
@@ -52,7 +42,35 @@
             </form>
             </div>
     </section>
+    <?php
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        require 'dbconnect.php';
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $cpassword = $_POST['cpassword'];
+        
+        $query = 'INSERT INTO users (username,password,email) VALUES (' . '\''.  $username .'\',\''. $password .'\',\''. $email . '\')';
+   
 
+
+      
+        
+        $result = pg_query($dbconn, $query);
+        
+        if ($result) {
+            
+            echo "Kullanıcı başarıyla eklendi.";
+        }
+        
+        
+        else {
+            echo "Kullanıcı eklenirken bir hata oluştu: " . pg_last_error();
+        }
+    }
+   
+    ?>
     <script src="register.js"></script>
 
     

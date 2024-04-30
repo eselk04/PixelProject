@@ -10,38 +10,59 @@
     <title>Login</title>
 </head>
 <body>
-    <nav class="container">
-        <div class="logo">
-            <a href="main.html"><h1>Pixel Shop</h1></a>  
-        </div>
-         <div class="list">  
-            <ul>
-                <li><a href="main.html"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li><a href="login.html"><i class="fa-solid fa-user"></i> Account</a></li>
-                <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Shopping &nbsp; Cart</a></li>     
-            </ul>
-        </div> 
-    </nav>
+ <?php
+ session_start();
+ if($_SERVER["REQUEST_METHOD"] == "POST") {
+ 
+ 
+     require "dbconnect.php";
+     $query = 'SELECT * FROM users where email = '.'\''. $_POST['email'] . '\' and password =' . '\'' . $_POST['password'] . '\'' ;
+     $result = pg_query($dbconn, $query);
+     echo $result;
+     while ($row = pg_fetch_assoc($result)) {
+       $_SESSION['ID'] =  $row['userid'];
+       $_SESSION['NAME'] =  $row['username'];
+     
+     header("location:main.php");
+     }
+ 
+ 
+ }
+ 
+ require "navbar.php";
+ 
+ ?>
 
 
     <section>
-        <div class="form">
+        <div class="form" >
             <h1>Please Login</h1>
-            <form>
+            <form method = "POST">
                 <div class="form-control">
-                    <input type="text" required>
+                    <input type="text" id="email" name="email" required>
                     <label >Email</label>
                 </div>
                 <div class="form-control">
-                    <input type="password" required>
+                    <input type="password" id="password" name="password" required>
                     <label >Password</label>
                 </div>
 
                 <button class="formbtn">Login</button>
-                <p class="text">Don't have an account?<a href="register.html">Register</a></p>
+                <p class="text">Don't have an account?<a href="register.php">Register</a></p>
             </form>
         </div>
     </section>
+    <?php 
+
+
+
+ 
+
+    
+    
+    
+    
+    ?>
 
     <script src="login.js"></script>
 </body>
