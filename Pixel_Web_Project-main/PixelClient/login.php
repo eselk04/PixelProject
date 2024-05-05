@@ -21,10 +21,9 @@
  if($_SERVER["REQUEST_METHOD"] == "POST") {
  
  
-     require "dbconnect.php";
+    require "../common/dbconnect.php";
      $query = 'SELECT * FROM users where email = '.'\''. $_POST['email'] . '\' and password =' . '\'' . $_POST['password'] . '\'' ;
      $result = pg_query($dbconn, $query);
-     echo $result;
      while ($row = pg_fetch_assoc($result)) {
        $_SESSION['ID'] =  $row['userid'];
        $_SESSION['NAME'] =  $row['username'];

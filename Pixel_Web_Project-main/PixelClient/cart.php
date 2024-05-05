@@ -18,10 +18,10 @@ session_start();
   $_SESSION["warninglogin"] = '<text id="warn">Cart sayfasına girmek için önce giriş yapmalısınız!</text>';
   header("location:login.php");
 }
-require "dbconnect.php";
+require "../common/dbconnect.php";
  
-  require "navbar.php";
-  if (array_key_exists('ID', $_SESSION) && !empty($_SESSION['ID'])) {
+require "navbar.php";
+if (array_key_exists('ID', $_SESSION) && !empty($_SESSION['ID'])) {
 } else {
     header("location:login.php");
 }
@@ -128,7 +128,7 @@ echo '
  <span class="total-value">' .  $totalvalue . ' TL</span>
 </div>
 <form method="POST">
-<button name="order" id="order"  class="order-button">Place Order</button></form>
+<button name="order" id="order" '; if($totalvalue == 0){echo "disabled";} echo ' class="order-button">Place Order</button></form>
 </div>
 </section>';
 

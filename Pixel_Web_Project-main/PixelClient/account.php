@@ -15,29 +15,11 @@
  if(!isset($_SESSION['ID'])){
   $_SESSION["warninglogin"] = '<text id="warn">Account sayfasına girmek için önce giriş yapmalısınız!</text>';
   header("location:login.php");
-  require "dbconnect.php";
+  require "../common/dbconnect.php";
 }
- require "navbar.php";
- function tarihFormatla($istenilen_tarih) {
-    $tarih_nesnesi = new DateTime($istenilen_tarih);
-    $aylar = array(
-        "01" => "Ocak",
-        "02" => "Şubat",
-        "03" => "Mart",
-        "04" => "Nisan",
-        "05" => "Mayıs",
-        "06" => "Haziran",
-        "07" => "Temmuz",
-        "08" => "Ağustos",
-        "09" => "Eylül",
-        "10" => "Ekim",
-        "11" => "Kasım",
-        "12" => "Aralık"
-    );
-    $turkce_ay = $aylar[$tarih_nesnesi->format('m')];
-    $formatli_tarih = $tarih_nesnesi->format('d') . ' ' . $turkce_ay . ' ' . $tarih_nesnesi->format('Y') . ' ' . $tarih_nesnesi->format('H:i');
-    return $formatli_tarih;
-}
+require "navbar.php";
+ require "../common/tarihformatla.php";
+
 $istenilen_tarih = $_SESSION['CDAT'];
 $formatli_tarih = tarihFormatla($istenilen_tarih);
 if(isset ($_POST['logout'])){
@@ -60,8 +42,7 @@ if(isset ($_POST['logout'])){
             </form>
         </div>
     </div>
-    <?php 
-    require "dbconnect.php";
+    <?php  require "../common/dbconnect.php";
     $query = "select * from orders o join products p on o.productid=p.productid where o.userid=" . $_SESSION['ID'];
     $result = pg_query($dbconn, $query);
     echo '<div class="order-history">

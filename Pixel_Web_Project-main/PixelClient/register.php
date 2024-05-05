@@ -45,7 +45,7 @@
     <?php
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        require 'dbconnect.php';
+        require "../common/dbconnect.php";
         $username = $_POST['username'];
         $password = $_POST['password'];
         $email = $_POST['email'];

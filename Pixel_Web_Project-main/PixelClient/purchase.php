@@ -17,7 +17,7 @@
     $_SESSION["warninglogin"] = '<text id="warn">Purchase sayfasına girmek için önce giriş yapmalısınız!</text>';
     header("location:login.php");
   }
-  require "dbconnect.php";
+  require "../common/dbconnect.php";
   if(isset($_POST['buy']))
   {
     $description = "";

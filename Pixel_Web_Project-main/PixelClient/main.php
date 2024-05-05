@@ -18,9 +18,9 @@
     <?php
     session_start();
     require "navbar.php";
-   
+ 
 
-require 'dbconnect.php';
+    require "../common/dbconnect.php";
  $query = "";
 $url = $_SERVER['REQUEST_URI'];
 if (strpos($url, '?') !== false) {
