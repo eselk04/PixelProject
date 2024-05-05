@@ -12,6 +12,12 @@
 <body>
  <?php
  session_start();
+ require "navbar.php";
+ if(isset($_SESSION["warninglogin"]))
+ {
+  echo $_SESSION["warninglogin"];
+  unset($_SESSION["warninglogin"]);
+ }
  if($_SERVER["REQUEST_METHOD"] == "POST") {
  
  
@@ -29,7 +35,7 @@
  
  }
  
- require "navbar.php";
+
  
  ?>
 

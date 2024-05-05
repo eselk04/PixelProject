@@ -13,8 +13,13 @@
     
 <?php
 
-  require "dbconnect.php";
-  session_start();
+session_start();
+ if(!isset($_SESSION['ID'])){
+  $_SESSION["warninglogin"] = '<text id="warn">Cart sayfasına girmek için önce giriş yapmalısınız!</text>';
+  header("location:login.php");
+}
+require "dbconnect.php";
+ 
   require "navbar.php";
   if (array_key_exists('ID', $_SESSION) && !empty($_SESSION['ID'])) {
 } else {
@@ -97,7 +102,7 @@ echo '
         $querydecrease = "DELETE FROM carts
         WHERE cart_id = (
           SELECT cart_id
-          FROM carts
+          FROM cartst
           WHERE product_id =". $prodcutId .   "
             AND user_id =" . $_SESSION['ID'] .  "
           LIMIT 1

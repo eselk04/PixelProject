@@ -16,7 +16,11 @@
     list-style: none;
 	text-decoration: none;
 }
+#warn{
+    color : red;
+    text-align: center;
 
+}
 body{
     background:#000007;
     background: linear-gradient(0deg, #a39eff 0%, #000007 90%);

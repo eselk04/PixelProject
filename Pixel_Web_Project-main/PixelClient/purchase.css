@@ -19,7 +19,7 @@
 
 body{
     background:#000007;
-    background: linear-gradient(0deg, #a39eff 0%, #1b213f 90%);
+    background: linear-gradient(0deg, #a39eff 0%, #000007 90%);
     margin:auto;
     padding:20px;
     font-family: "Pixelify Sans", sans-serif;
@@ -46,7 +46,8 @@ body{
     width:400px;
     display:flex;
     align-items:baseline;
-    justify-content:space-between;  
+    justify-content:space-between;
+    
 }
 
 nav a {
@@ -105,84 +106,67 @@ ul {
     transform: translateX(198px);
 }
 
-
-main{
-    display: flex;
-    flex-wrap: wrap;
+.account{
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--var--twice);
+    color: var(--var--white);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.product{
-    width:250px;
-    margin: 1rem;
-    background-color: var(--var--backround);
-    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-    position: relative;
-    overflow: hidden;
-    border-radius: 3px;
-    transition: transform 0.3s;
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.product:hover{
-    transform: scale(1.1);
-}
-
-.product img{
+form {
     width: 100%;
 }
 
-.product-info{
-    color: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.2rem;
-    padding: 0.5rem 1rem 1rem;
-    letter-spacing: 0.5px;
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.product-info h3{
-    margin-top: 0;
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
 }
 
-.product-info span{
-    background-color: var(--var--background);
-    font-family:san-serif;
-    padding: 0.25rem 0.5rem;
-    border-radius: 3px;
-   
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
 }
 
-.overview{
-    background-color:var(--var--white);
-    padding: 2rem;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: 80%;
-    transform: translateY(101%);
-    transition: transform 0.3s ease-in;
+input[type="submit"] {
+    background-color:var(--var--backround);
+    color: var(--var--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
 }
 
-
-.product:hover .overview{
-    transform: translateY(0);
+input[type="submit"]:hover {
+    background-color:var(--var--third);
+    color: var(--var--one);
+    transform: scale(0.96);
 }
-
-main a {
-    color:var(--var--white);
-}
-main a:hover{
-    color:var(--var--twice);
-}
-
-main .sepet{
-    padding:10px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
 
 @media (max-width:900px){
     .container {
