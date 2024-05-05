@@ -18,13 +18,14 @@
 }
 
 body{
+    background:#000007;
+    background: linear-gradient(0deg, #a39eff 0%, #000007 90%);
     margin:auto;
     padding:20px;
     font-family: "Pixelify Sans", sans-serif;
     font-size: 20px;
     line-height: 1.5;
     color:var(--var--fourth);
-    background-color:var(--var--third);
 }
 
 .container{ 
@@ -149,24 +150,92 @@ p{
     transition: background-color 0.3s;
 }
 
-.Sbtn-primary {
-    color: #fff;
-    background-color: 	steelblue;
-    border: 1px solid 	steelblue;
-    
-}
+
+
 
 
 .Sbtn-danger {
     color: #fff;
-    background-color:		cornflowerblue;
-    border: 1px solid 	cornflowerblue;
+    background-color: steelblue;
+    border: 1px solid steelblue;
     
 }
 
 .Sbtn:hover {
     opacity: 0.8;
     transform: scale(0.96);
+}
+
+
+.order-history {
+    font-size: 16px;
+    margin-bottom: 30px;
+    border-top: 2px solid var(--var--fourth);
+    color: var(--var--white);
+    padding-top: 20px;
+}
+
+.order-history h1{
+    color: var(--var--fourth);
+    font-size: 38px;
+    text-align: center;
+    padding: 20px;
+}
+
+.order {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--var--third);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--var--twice);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order:last-child {
+    margin-bottom: 0;
+}
+
+.order img {
+    width: 10%;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.order p{
+    font-size: 26px;
+}
+.order-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.status {
+    font-size: 24px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status.preparing {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.status.delivered {
+    background-color: #28a745;
+    color: var(--var--white);
+}
+
+.status.cancelled {
+    background-color: #dc3545;
+    color: var(--var--white);
 }
 
 @media (max-width:900px){

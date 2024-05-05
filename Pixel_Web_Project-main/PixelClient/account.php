@@ -57,7 +57,44 @@ if(isset ($_POST['logout'])){
         </div>
     </div>
     <?php 
+    echo ' <div class="order-history">
+    <h1>Order History</h1>
+    <div class="order">
+        <div class="order-item">
+            <div class="order-details"> 
+                <img src="image.jpg" alt="Product Image">
+                <p> iPhone 12 Pro</p>
+                <p> $999</p>
+                <p> May 1, 2024</p>
+                <p><span class="status preparing">Preparing</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="order">
+        <div class="order-item">
+            <div class="order-details">
+            <img src="image.jpg" alt="Product Image">
+            
+                <p> MacBook Pro</p>
+                <p> $1499</p>
+                <p> April 20, 2024</p>
+                <p> <span class="status delivered">Delivered</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="order">
+        <div class="order-item">
+            <div class="order-details"> 
+                <img src="image.jpg" alt="Product Image">
+                <p> Apple Watch Series 7</p>
+                <p> $399</p>
+                <p> March 15, 2024</p>
+                <p><span class="status cancelled">Cancelled</span></p>
+            </div>
+        </div>
+    </div>
     
+</div>';
     
     ?>
     <div></div>
