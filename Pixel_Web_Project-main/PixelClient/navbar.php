@@ -30,7 +30,7 @@
                
                 if (isset($_SESSION['ID'])) {
                     
-                    echo "Merhaba " . $_SESSION['NAME'];  } 
+                    echo $_SESSION['NAME'];  } 
                     else {
                     echo "<a href='login.php'>Giriş Yap</a>";  } 
                    

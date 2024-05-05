@@ -52,11 +52,15 @@ if(isset ($_POST['logout'])){
         </div>
         <div class="actions">
           <form method="POST">
-            <button type="submit" class="Sbtn Sbtn-primary">Order History</button>
             <button type="submit" name="logout" id="logout" class="Sbtn Sbtn-danger">Logout</button>
             </form>
         </div>
     </div>
+    <?php 
+    
+    
+    ?>
+    <div></div>
 </body>
 
 </html>

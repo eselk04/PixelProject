@@ -72,15 +72,9 @@ echo '
         $querydelete = "DELETE FROM carts c where c.product_id =" . $prodcutId  .
          " and c.user_id=" . $_SESSION['ID'];
          $resultdelete = pg_query($dbconn, $querydelete);
-         header("location:cart.php");
-        /* echo "<script>";
-         echo "console.log('dsfgd')";
-         echo "document.getElementsByName('deletebutton" . $productId .  "').parentElement.remove()[0];";
-         echo "</script>"; */
-
-       
+         header("location:cart.php"); 
       }
-    //  echo "quantity" . $quantity . "stock" . $stock;
+   
       if(isset($_POST['increasebutton'. $prodcutId])) {
      
          if($quantity<$stock)
@@ -111,18 +105,34 @@ echo '
          header("location:cart.php");
       
       }
+     
+    
+    
+    }
       
 
- }
+ 
 
 
  echo ' <div class="total-price">
  <span class="total-label">Total:</span>
  <span class="total-value">' .  $totalvalue . ' TL</span>
 </div>
-<button  class="order-button"><a id="ordernavi" href="purchase.php">Place Order<a></button>
+<form method="POST">
+<button name="order" id="order"  class="order-button">Place Order</button></form>
 </div>
 </section>';
+
+
+if(isset($_POST["order"]))
+{
+  if(!$totalvalue>0)
+  echo "Sepetiniz boş!";
+  else 
+{
+  header("location:purchase.php");
+}
+}
 
 
   ?>
