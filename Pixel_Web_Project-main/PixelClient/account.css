@@ -18,8 +18,6 @@
 }
 
 body{
-    background:#000007;
-    background: linear-gradient(0deg, #a39eff 0%, #000007 90%);
     margin:auto;
     padding:20px;
     font-family: "Pixelify Sans", sans-serif;
@@ -51,7 +49,6 @@ body{
 
 nav a {
     color:var(--var--white);
-    transition: color 0.5s ease;
 }
 nav a:hover{
     color:var(--var--twice);
@@ -105,82 +102,72 @@ ul {
     transform: translateX(198px);
 }
 
-.register{
-    background-attachment: fixed;
-    margin:0;
-    
-}
 
-#form{
-    width:400px;
-    color:var(--var--one);
-    margin:10vh auto 0 auto;
-    background-color: var(--var--third);
-    border-radius: 8px;
-    padding:30px;
-}
-
-section h1{
+.account{
+    margin: 50px auto;
+    padding: 30px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:var(--var--twice);
+    color: var(--var--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
-    color:var(--var--backround);
-    padding:20px;
-    font-size:40px;
 }
 
-#form button{
-    background-color: var(--var--twice);
-    color:white;
-    border: 1px solid var(--var--twice);
-    border-radius: 5px;
-    padding:10px;
-    margin:20px 0px;
-    cursor:pointer;
-    font-size:20px;
-    width:100%;
+.header {
+    margin-bottom: 30px;
 }
-
-.input-group{
+ 
+h1{
+    padding: 10px;;
     
-    display:flex;
-    flex-direction: column;
-    margin-bottom: 15px;
 }
 
+p strong{
+    color:var(--var--fourth);
+}
 
-.input-group input{
-    background-color:var(--var--third);
+p{
+    padding: 10px;
+    font-size: 28px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Sbtn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
     border-radius: 5px;
-    font-size:20px;
-    margin-top:5px;
-    padding:10px;
-    border:1px solid var(--var--fourth) ;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Sbtn-primary {
+    color: #fff;
+    background-color: 	steelblue;
+    border: 1px solid 	steelblue;
+    
 }
 
 
-/*
-.input-group input:focus{
-    outline:0;
+.Sbtn-danger {
+    color: #fff;
+    background-color:		cornflowerblue;
+    border: 1px solid 	cornflowerblue;
+    
 }
 
-.input-group .error{
-    color:#800000;
-    font-size:16px;
-    margin-top: 5px;
+.Sbtn:hover {
+    opacity: 0.8;
+    transform: scale(0.96);
 }
-
-.input-group.success input{
-    border-color: #0cc477;
-}
-
-.input-group.error input{
-    border-color:#800000;
-}
-*/
-
-::placeholder {
-    color:var(--var--white);
-    opacity: 1; 
-  }
 
 @media (max-width:900px){
     .container {

@@ -17,22 +17,7 @@
              <div class="list">  
                 <ul>
                     <li><a href="main.php"><i class="fa-solid fa-house"></i> Home</a></li>
-                    <?php
-                       if (session_status() == PHP_SESSION_NONE) {
-                        session_start();
-                    }
-                    if(isset($_SESSION['ID']))
-                    {
-                        // Account.php tasarlanınca burada oraya yönlendirilecek.
-                   echo '<li><a href="login.php"><i class="fa-solid fa-user"></i> Account</a></li>';
-                    }
-                    else{
-                     echo '<li><a href="login.php"><i class="fa-solid fa-user"></i> Account</a></li>';
-                    }
-                    
-                    
-                    ?>
-                    
+                    <li><a href="account.php"><i class="fa-solid fa-user"></i> Account</a></li>
                     <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Shopping &nbsp; Cart</a></li>     
                 </ul>
             </div> 

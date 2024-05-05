@@ -5,51 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="account.css">
-    <title>Pixel Shop</title>
+    <link rel="stylesheet" href="account.css"/>
+    
+    <title>Login</title>
 </head>
-
 <body>
-    
-  <?php 
-require "navbar.php";
+ <?php
+ session_start();
+ if(!isset($_SESSION['ID'])){
+  $_SESSION["warninglogin"] = '<text id="warn">Account sayfasına girmek için önce giriş yapmalısınız!</text>';
+  header("location:login.php");
+  require "dbconnect.php";
+}
+ require "navbar.php";
+ $istenilen_tarih = $_SESSION['CDAT'];
+$tarih_nesnesi = new DateTime($istenilen_tarih);
+$aylar = array(
+    "01" => "Ocak",
+    "02" => "Şubat",
+    "03" => "Mart",
+    "04" => "Nisan",
+    "05" => "Mayıs",
+    "06" => "Haziran",
+    "07" => "Temmuz",
+    "08" => "Ağustos",
+    "09" => "Eylül",
+    "10" => "Ekim",
+    "11" => "Kasım",
+    "12" => "Aralık"
+);
+$turkce_ay = $aylar[$tarih_nesnesi->format('m')];
+$formatli_tarih = $tarih_nesnesi->format('d') . ' ' . $turkce_ay . ' ' . $tarih_nesnesi->format('Y') . ' ' . $tarih_nesnesi->format('H:i');
+if(isset ($_POST['logout'])){
+  unset($_SESSION['ID']);
+  header("location:main.php");
+}
+ ?>
 
-  ?>
-
- 
-
-    <section>       
-        <div class="register">
-            <form action="" id="form">
-            <h1>Account Info</h1>
-            <div class="input-group">
-            <label for="username">Username</label>
-            <input type="text" placeholder="Dilber Şah" id="username" name="username">
-        
-            </div>
-            <div class="input-group">
-            <label for="email">Email</label>
-            <input type="text" placeholder="dilber-sah@hotmail.com" id="email" name="email" >
-        
-            </div>
-            <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="deneme123" name="password">
-            </div>
-            <!--  
-            <div class="input-group">
-            <label for="cpassword">Confirm Password</label>
-            <input type="password" id="cpassword" name="cpassword">
-            </div>   
-            -->
-            
-            <button type="submit">Update</button>
+    <div class="account">
+        <div class="header">
+            <h1>Welcome, <?php   echo $_SESSION['NAME']; ?>!</h1>
+            <p style="font-size: 24px;">Your account information:</p>
+            <p><strong>Name:</strong>  &nbsp <?php   echo $_SESSION['NAME']; ?></p>
+            <p><strong>Email:</strong>  &nbsp <?php   echo $_SESSION['EMAIL']; ?></p>
+            <p><strong>Account Create Date:</strong>  &nbsp <?php   echo $formatli_tarih; ?></p>
+        </div>
+        <div class="actions">
+          <form method="POST">
+            <button type="submit" class="Sbtn Sbtn-primary">Order History</button>
+            <button type="submit" name="logout" id="logout" class="Sbtn Sbtn-danger">Logout</button>
             </form>
-            </div>
-    </section>
-
-    <script src="account.js"></script>
-
-    
+        </div>
+    </div>
 </body>
+
 </html>

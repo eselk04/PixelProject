@@ -28,6 +28,8 @@
      while ($row = pg_fetch_assoc($result)) {
        $_SESSION['ID'] =  $row['userid'];
        $_SESSION['NAME'] =  $row['username'];
+       $_SESSION['EMAIL'] = $row['email']; 
+       $_SESSION['CDAT'] = $row['createdat'];
      
      header("location:main.php");
      }
