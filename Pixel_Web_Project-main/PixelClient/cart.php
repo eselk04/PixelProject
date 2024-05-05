@@ -105,6 +105,15 @@ echo '
          header("location:cart.php");
       
       }
+      if(isset($_POST["order"]))
+{
+  if(!$totalvalue>0)
+  echo "Sepetiniz boş!";
+  else 
+{
+  header("location:purchase.php");
+}
+}
      
     
     
@@ -124,15 +133,7 @@ echo '
 </section>';
 
 
-if(isset($_POST["order"]))
-{
-  if(!$totalvalue>0)
-  echo "Sepetiniz boş!";
-  else 
-{
-  header("location:purchase.php");
-}
-}
+
 
 
   ?>

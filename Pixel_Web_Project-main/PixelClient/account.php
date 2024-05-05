@@ -18,24 +18,28 @@
   require "dbconnect.php";
 }
  require "navbar.php";
- $istenilen_tarih = $_SESSION['CDAT'];
-$tarih_nesnesi = new DateTime($istenilen_tarih);
-$aylar = array(
-    "01" => "Ocak",
-    "02" => "Şubat",
-    "03" => "Mart",
-    "04" => "Nisan",
-    "05" => "Mayıs",
-    "06" => "Haziran",
-    "07" => "Temmuz",
-    "08" => "Ağustos",
-    "09" => "Eylül",
-    "10" => "Ekim",
-    "11" => "Kasım",
-    "12" => "Aralık"
-);
-$turkce_ay = $aylar[$tarih_nesnesi->format('m')];
-$formatli_tarih = $tarih_nesnesi->format('d') . ' ' . $turkce_ay . ' ' . $tarih_nesnesi->format('Y') . ' ' . $tarih_nesnesi->format('H:i');
+ function tarihFormatla($istenilen_tarih) {
+    $tarih_nesnesi = new DateTime($istenilen_tarih);
+    $aylar = array(
+        "01" => "Ocak",
+        "02" => "Şubat",
+        "03" => "Mart",
+        "04" => "Nisan",
+        "05" => "Mayıs",
+        "06" => "Haziran",
+        "07" => "Temmuz",
+        "08" => "Ağustos",
+        "09" => "Eylül",
+        "10" => "Ekim",
+        "11" => "Kasım",
+        "12" => "Aralık"
+    );
+    $turkce_ay = $aylar[$tarih_nesnesi->format('m')];
+    $formatli_tarih = $tarih_nesnesi->format('d') . ' ' . $turkce_ay . ' ' . $tarih_nesnesi->format('Y') . ' ' . $tarih_nesnesi->format('H:i');
+    return $formatli_tarih;
+}
+$istenilen_tarih = $_SESSION['CDAT'];
+$formatli_tarih = tarihFormatla($istenilen_tarih);
 if(isset ($_POST['logout'])){
   unset($_SESSION['ID']);
   header("location:main.php");
@@ -57,44 +61,29 @@ if(isset ($_POST['logout'])){
         </div>
     </div>
     <?php 
-    echo ' <div class="order-history">
-    <h1>Order History</h1>
-    <div class="order">
-        <div class="order-item">
-            <div class="order-details"> 
-                <img src="image.jpg" alt="Product Image">
-                <p> iPhone 12 Pro</p>
-                <p> $999</p>
-                <p> May 1, 2024</p>
-                <p><span class="status preparing">Preparing</span></p>
-            </div>
-        </div>
-    </div>
-    <div class="order">
-        <div class="order-item">
-            <div class="order-details">
-            <img src="image.jpg" alt="Product Image">
-            
-                <p> MacBook Pro</p>
-                <p> $1499</p>
-                <p> April 20, 2024</p>
-                <p> <span class="status delivered">Delivered</span></p>
-            </div>
-        </div>
-    </div>
-    <div class="order">
-        <div class="order-item">
-            <div class="order-details"> 
-                <img src="image.jpg" alt="Product Image">
-                <p> Apple Watch Series 7</p>
-                <p> $399</p>
-                <p> March 15, 2024</p>
-                <p><span class="status cancelled">Cancelled</span></p>
-            </div>
-        </div>
-    </div>
+    require "dbconnect.php";
+    $query = "select * from orders o join products p on o.productid=p.productid where o.userid=" . $_SESSION['ID'];
+    $result = pg_query($dbconn, $query);
+    echo '<div class="order-history">
+    <h1>Order History</h1>';
     
-</div>';
+    while ($row = pg_fetch_assoc($result)) {
+
+        echo ' 
+        <div class="order">
+            <div class="order-item">
+                <div class="order-details">
+                    <img src="../images/product' . $row['productid'] .  '.jpg" alt="Product Image">
+                    <p>' .$row['productname'] .  '</p>
+                    <p> $' . $row['price'].  '</p>
+                    <p>' . tarihFormatla($row['orderdate']) .'</p>
+                    <p><span class="status ' . strtolower($row['status']). '">' .$row['status'] .  '</span></p>
+                </div>
+            </div>
+        </div>';
+    }
+    echo '</div>';
+  
     
     ?>
     <div></div>
