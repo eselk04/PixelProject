@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="cart.css">
     <title>Pixel Shop</title>
 </head>
-
 <body>
-    
 <?php
 
 session_start();
@@ -29,8 +27,6 @@ if (array_key_exists('ID', $_SESSION) && !empty($_SESSION['ID'])) {
   FROM products p 
   JOIN carts c ON p.productid = c.product_id 
   WHERE c.user_id =' . $_SESSION['ID'] . ' GROUP BY p.productid, p.productname;';
-   
-  
  $result = pg_query($dbconn, $query);
 
  echo ' <section>
@@ -46,7 +42,48 @@ if (array_key_exists('ID', $_SESSION) && !empty($_SESSION['ID'])) {
     $quantity = $row['quantity'];
     $prodcutId = $row['productid'];
     $stock = $row['stock'];
-
+    if(isset($_POST['deletebutton'. $prodcutId])) {
+      $querydelete = "DELETE FROM carts c where c.product_id =" . $prodcutId  .
+       " and c.user_id=" . $_SESSION['ID'];
+       $resultdelete = pg_query($dbconn, $querydelete);
+       header("location:cart.php"); 
+    }
+ 
+    if(isset($_POST['increasebutton'. $prodcutId])) {
+   
+       if($quantity<$stock)
+       {
+          $queryincrease =   'INSERT INTO carts (user_id, product_id)
+          VALUES (' . '\'' . $_SESSION['ID'] . '\','.'\''. $prodcutId . '\')' ;
+           $resultincrease = pg_query($dbconn, $queryincrease);
+           header("location:cart.php");
+       }
+       else {
+          echo "Alınacak ürün sayısı stoktakinden daha fazla olamaz.";
+       }
+    }
+    if(isset($_POST['decreasebutton'. $prodcutId])) {
+      $querydecrease = "DELETE FROM carts
+      WHERE cart_id = (
+        SELECT cart_id
+        FROM carts
+        WHERE product_id =". $prodcutId .   "
+          AND user_id =" . $_SESSION['ID'] .  "
+        LIMIT 1
+      );";
+       $resultdecrease = pg_query($dbconn, $querydecrease);
+       header("location:cart.php");
+    
+    }
+    if(isset($_POST["order"]))
+{
+if(!$totalvalue>0)
+echo "Sepetiniz boş!";
+else 
+{
+header("location:purchase.php");
+}
+}
 
 echo ' 
 <form method = "POST">
@@ -68,55 +105,6 @@ echo '
         </form>
        ';
        $totalvalue += ($productPrice *  $quantity);
-       if(isset($_POST['deletebutton'. $prodcutId])) {
-        $querydelete = "DELETE FROM carts c where c.product_id =" . $prodcutId  .
-         " and c.user_id=" . $_SESSION['ID'];
-         $resultdelete = pg_query($dbconn, $querydelete);
-         header("location:cart.php"); 
-      }
-   
-      if(isset($_POST['increasebutton'. $prodcutId])) {
-     
-         if($quantity<$stock)
-         {
-            $queryincrease =   'INSERT INTO carts (user_id, product_id)
-            VALUES (' . '\'' . $_SESSION['ID'] . '\','.'\''. $prodcutId . '\')' ;
-             $resultincrease = pg_query($dbconn, $queryincrease);
-             header("location:cart.php");
-         }
-         else {
-            echo "Alınacak ürün sayısı stoktakinden daha fazla olamaz.";
-         }
-
-
-   
-       
-      }
-      if(isset($_POST['decreasebutton'. $prodcutId])) {
-        $querydecrease = "DELETE FROM carts
-        WHERE cart_id = (
-          SELECT cart_id
-          FROM cartst
-          WHERE product_id =". $prodcutId .   "
-            AND user_id =" . $_SESSION['ID'] .  "
-          LIMIT 1
-        );";
-         $resultdecrease = pg_query($dbconn, $querydecrease);
-         header("location:cart.php");
-      
-      }
-      if(isset($_POST["order"]))
-{
-  if(!$totalvalue>0)
-  echo "Sepetiniz boş!";
-  else 
-{
-  header("location:purchase.php");
-}
-}
-     
-    
-    
     }
       
 
