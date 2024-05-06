@@ -57,6 +57,7 @@ if(isset ($_POST['logout'])){
                     <img src="../images/product' . $row['productid'] .  '.jpg" alt="Product Image">
                     <p>' .$row['productname'] .  '</p>
                     <p> $' . $row['price'].  '</p>
+                    <p>' . (int)$row['totalamount']. ' adet' .   '</p>
                     <p>' . tarihFormatla($row['orderdate']) .'</p>
                     <p><span class="status ' . strtolower($row['status']). '">' .$row['status'] .  '</span></p>
                 </div>
