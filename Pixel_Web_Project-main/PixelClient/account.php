@@ -39,6 +39,7 @@ if(isset ($_POST['logout'])){
         <div class="actions">
           <form method="POST">
             <button type="submit" name="logout" id="logout" class="Sbtn Sbtn-danger">Logout</button>
+            <button type="submit" name="changepassword" id="changepassword" class="Sbtn Sbtn-danger">Change Account Info</button>
             </form>
         </div>
     </div>
@@ -47,14 +48,19 @@ if(isset ($_POST['logout'])){
     $result = pg_query($dbconn, $query);
     echo '<div class="order-history">
     <h1>Order History</h1>';
-    
+    if(isset($_POST['changepassword'])){
+      header("location:accountinfo.php");
+
+    }
     while ($row = pg_fetch_assoc($result)) {
 
         echo ' 
         <div class="order">
             <div class="order-item">
                 <div class="order-details">
-                    <img src="../images/product' . $row['productid'] .  '.jpg" alt="Product Image">
+               
+                    <img onclick="window.location.href=\'product.php?id='.  $row['productid'].  '\';" src="../images/product' . $row['productid'] .  '.jpg" alt="Product Image">
+                    
                     <p>' .$row['productname'] .  '</p>
                     <p> $' . $row['price'].  '</p>
                     <p>' . (int)$row['totalamount']. ' adet' .   '</p>
