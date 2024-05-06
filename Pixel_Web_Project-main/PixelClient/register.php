@@ -44,32 +44,32 @@
     </section>
     <?php
     if($_SERVER["REQUEST_METHOD"] == "POST")
-    {
-        require "../common/dbconnect.php";
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $cpassword = $_POST['cpassword'];
-        
-        $query = 'INSERT INTO users (username,password,email) VALUES (' . '\''.  $username .'\',\''. $password .'\',\''. $email . '\')';
-   
-
-
-      
-        
-        $result = pg_query($dbconn, $query);
-        
-        if ($result) {
-            
-            echo "Kullanıcı başarıyla eklendi.";
-        }
-        
-        
-        else {
-            echo "Kullanıcı eklenirken bir hata oluştu: " . pg_last_error();
+    {   require "../common/dbconnect.php";
+        $qcheckifexists= "SELECT CASE WHEN COUNT(*) = 0 THEN 1 ELSE 0 END AS result FROM users where email=" . "'" .  $_POST['email'] . "'";
+        $resultcheck = pg_query($dbconn, $qcheckifexists);
+        while ($row = pg_fetch_assoc($resultcheck)) {
+            if($row['result'] == 0)
+            {
+                echo "Bu email ile zaten bir hesap açılmış.";
+            }
+            else{
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $cpassword = $_POST['cpassword'];
+                
+                $query = 'INSERT INTO users (username,password,email) VALUES (' . '\''.  $username .'\',\''. $password .'\',\''. $email . '\')';
+                $result = pg_query($dbconn, $query);
+                if ($result) {
+                    
+                    echo "Kullanıcı başarıyla eklendi.";
+                }
+                else {
+                    echo "Kullanıcı eklenirken bir hata oluştu: " . pg_last_error();
+                }
+            }
         }
     }
-   
     ?>
     <script src="register.js"></script>
 

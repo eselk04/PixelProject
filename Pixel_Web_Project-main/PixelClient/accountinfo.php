@@ -30,6 +30,7 @@
         . "'"  . $_POST['name'] . "'"  . " , password =" . "'" . $_POST['password'] .  "'".
           " where userid =" . $_SESSION['ID'] . ";";
           pg_query($dbconn, $queryupdate);
+          $_SESSION['NAME'] =  $_POST['name'];
          header("location:account.php");
       }
       else{
