@@ -1,0 +1,107 @@
+CREATE TABLE users (
+    userid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY ,
+    username VARCHAR(255),
+    password VARCHAR(255),
+    email VARCHAR(255),
+    createdat timestamp default CURRENT_TIMESTAMP
+);
+
+CREATE TABLE products (
+    productid INT generated ALWAYS AS IDENTITY PRIMARY KEY,
+    productname VARCHAR(255),
+    description VARCHAR(255),
+    price DECIMAL(10, 2),
+    stock  DECIMAL(10, 2),
+    createdat timestamp default CURRENT_TIMESTAMP
+);
+
+CREATE TABLE carts (
+    cart_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id INT,
+    product_id INT,
+    created_at timestamp default CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(userid),
+    FOREIGN KEY (product_id) REFERENCES products(productid)
+);
+
+CREATE TABLE orders (
+    orderid  INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    userid INT,
+    orderdate timestamp default CURRENT_TIMESTAMP,
+    totalamount DECIMAL(10, 2),
+    FOREIGN KEY (userid) REFERENCES users(userid)
+);
+
+CREATE TABLE orderdetails (
+    orderdetailid INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    orderid INT,
+    productid INT,
+    quantity INT,
+    unitprice INT,
+    date DATE default CURRENT_TIMESTAMP,
+   
+    FOREIGN KEY (orderid) REFERENCES orders(orderid),
+    FOREIGN KEY (productid) REFERENCES products(productid)
+);
+
+
+
+
+
+--migs
+
+
+INSERT INTO products (productname,description,price,stock,createdat) VALUES
+	 ('ASUS VivoBook 15','15.6-inch Full HD laptop with Intel Core i5 processor.',3499.99,20,'2024-04-25 22:32:59.269034'),
+	 ('HP Pavilion x360','Convertible laptop with touchscreen display and AMD Ryzen 7 processor.',2799.99,15,'2024-04-25 22:32:59.269034'),
+	 ('Lenovo ThinkPad X1 Carbon','Premium ultrabook with Intel Core i7, 16GB RAM, and 1TB SSD.',4999.99,10,'2024-04-25 22:32:59.269034'),
+	 ('Dell XPS 15','High-performance laptop with 4K OLED display and Intel Core i9 processor.',3999.99,18,'2024-04-25 22:32:59.269034'),
+	 ('Apple MacBook Pro','Powerful laptop with M1 Pro chip, 16GB RAM, and 1TB SSD.',4399.99,22,'2024-04-25 22:32:59.269034'),
+	 ('Acer Predator Helios 300','Gaming laptop with NVIDIA GeForce RTX 3060 graphics card and Intel Core i7 processor.',2999.99,12,'2024-04-25 22:32:59.269034'),
+	 ('Microsoft Surface Laptop 4','Thin and light laptop with touchscreen display and AMD Ryzen 5 processor.',3799.99,14,'2024-04-25 22:32:59.269034'),
+	 ('Razer Blade 15','Sleek gaming laptop with 240Hz display and NVIDIA GeForce RTX 3080 graphics card.',4199.99,16,'2024-04-25 22:32:59.269034'),
+	 ('Samsung Galaxy Book Pro','Ultra-thin laptop with Super AMOLED display and Intel Core i5 processor.',3599.99,20,'2024-04-25 22:32:59.269034'),
+	 ('LG Gram 17','Lightweight laptop with 17-inch WQXGA display and Intel Core i7 processor.',4599.99,8,'2024-04-25 22:32:59.269034');
+INSERT INTO products (productname,description,price,stock,createdat) VALUES
+	 ('MSI GS66 Stealth','Powerful gaming laptop with NVIDIA GeForce RTX 3070 graphics card and Intel Core i7 processor.',3899.99,10,'2024-04-25 22:32:59.269034'),
+	 ('Google Pixelbook Go','Lightweight Chromebook with 13.3-inch touchscreen display and Intel Core i5 processor.',3199.99,18,'2024-04-25 22:32:59.269034'),
+	 ('Huawei MateBook X Pro','Sleek ultrabook with 3K touchscreen display and Intel Core i7 processor.',3299.99,15,'2024-04-25 22:32:59.269034'),
+	 ('Alienware m15 R6','Gaming laptop with Alienware Cryo-Tech cooling and NVIDIA GeForce RTX 3090 graphics card.',4999.99,6,'2024-04-25 22:32:59.269034'),
+	 ('Xiaomi Mi Notebook Pro','High-performance laptop with 2.5K display and Intel Core i7 processor.',3399.99,14,'2024-04-25 22:32:59.269034'),
+	 ('Sony VAIO SX14','Premium business laptop with Full HD display and Intel Core i7 processor.',4799.99,12,'2024-04-25 22:32:59.269034'),
+	 ('Fujitsu Lifebook U9311','Slim and lightweight business laptop with 13.3-inch display and Intel Core i5 processor.',3499.99,15,'2024-04-25 22:32:59.269034'),
+	 ('Panasonic Toughbook 55','Rugged laptop with 14-inch display and Intel Core i7 processor.',3899.99,8,'2024-04-25 22:32:59.269034'),
+	 ('Toshiba Portégé X30','Ultra-portable business laptop with Intel Core i5 processor.',3699.99,20,'2024-04-25 22:32:59.269034'),
+	 ('MSI Creator Z16','Creative laptop with 16-inch display and NVIDIA GeForce RTX 3060 graphics card.',4699.99,10,'2024-04-25 22:32:59.269034');
+INSERT INTO products (productname,description,price,stock,createdat) VALUES
+	 ('Google Pixelbook','Premium Chromebook with 12.3-inch display and Intel Core i5 processor.',3499.99,16,'2024-04-25 22:32:59.269034'),
+	 ('Huawei MateBook D','Affordable laptop with 15.6-inch display and AMD Ryzen 5 processor.',3199.99,25,'2024-04-25 22:32:59.269034'),
+	 ('Alienware m15 R5','Gaming laptop with NVIDIA GeForce RTX 3080 graphics card and Intel Core i7 processor.',3999.99,18,'2024-04-25 22:32:59.269034'),
+	 ('Xiaomi Mi Notebook Air','Lightweight laptop with 13.3-inch display and Intel Core i5 processor.',3299.99,22,'2024-04-25 22:32:59.269034'),
+	 ('Sony VAIO S13','Premium business laptop with Full HD display and Intel Core i7 processor.',4399.99,14,'2024-04-25 22:32:59.269034'),
+	 ('Toshiba Portégé Z30','Ultra-portable business laptop with Intel Core i5 processor.',3699.99,20,'2024-04-25 22:32:59.269034'),
+	 ('Fujitsu Lifebook U939X','Slim and lightweight business laptop with 13.3-inch display and Intel Core i5 processor.',3499.99,15,'2024-04-25 22:32:59.269034'),
+	 ('Panasonic Toughbook 54','Rugged laptop with 14-inch display and Intel Core i7 processor.',3899.99,8,'2024-04-25 22:32:59.269034');
+INSERT INTO users (username,"password",email,createdat) VALUES
+	 ('emre',' sdgdsgsdgd','email@email.com','2024-04-27 12:07:45.768071'),
+	 ('as','asa','asa@gmail.com','2024-04-28 20:06:19.96458');
+
+INSERT INTO carts (user_id,created_at,product_id) VALUES
+	 (2,'2024-04-28 20:08:05.275758',2);
+
+
+ALTER TABLE public.orders ADD productid int NOT NULL;
+ALTER TABLE public.orders ADD adress varchar NOT NULL;
+ALTER TABLE public.orders ADD description varchar NULL;
+ALTER TABLE public.orders ADD "name" varchar NOT NULL;
+ALTER TABLE public.products ADD categoryid int NULL;
+CREATE TABLE public.categories (
+	categoryid int GENERATED ALWAYS AS IDENTITY NOT NULL,
+	categoryname varchar NOT NULL,
+	CONSTRAINT categories_pk PRIMARY KEY (categoryid)
+);
+INSERT INTO public.categories
+(categoryid, categoryname)
+VALUES(1, 'laptops');
+update products set categoryid=1
+ALTER TABLE public.products ALTER COLUMN categoryid SET NOT NULL;

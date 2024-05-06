@@ -12,9 +12,10 @@
 
 <body>
 <?php 
+session_start();
     require "navbar.php";
     require "../common/dbconnect.php";
-    session_start();
+    
     $query = "select * from users where userid=" . $_SESSION['ID'];
     $result = pg_query($dbconn, $query);
     $username = "";
