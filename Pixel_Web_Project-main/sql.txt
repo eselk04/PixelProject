@@ -101,7 +101,7 @@ CREATE TABLE public.categories (
 	CONSTRAINT categories_pk PRIMARY KEY (categoryid)
 );
 INSERT INTO public.categories
-(categoryid, categoryname)
-VALUES(1, 'laptops');
-update products set categoryid=1
+(categoryname)
+VALUES('laptops');
+update products set categoryid=1;
 ALTER TABLE public.products ALTER COLUMN categoryid SET NOT NULL;
