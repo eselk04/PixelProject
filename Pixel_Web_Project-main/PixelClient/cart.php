@@ -42,6 +42,7 @@ if (array_key_exists('ID', $_SESSION) && !empty($_SESSION['ID'])) {
     $quantity = $row['quantity'];
     $prodcutId = $row['productid'];
     $stock = $row['stock'];
+    $totalvalue += ($productPrice *  $quantity);
     if(isset($_POST['deletebutton'. $prodcutId])) {
       $querydelete = "DELETE FROM carts c where c.product_id =" . $prodcutId  .
        " and c.user_id=" . $_SESSION['ID'];
@@ -104,7 +105,7 @@ echo '
         </div>
         </form>
        ';
-       $totalvalue += ($productPrice *  $quantity);
+      
     }
       
 

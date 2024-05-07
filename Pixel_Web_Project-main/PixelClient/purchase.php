@@ -36,7 +36,7 @@
         $querydelete = "delete from carts where user_id=" . $_SESSION["ID"];
         pg_query($dbconn , $querydelete);
       }
-      header("location:account.php");
+     header("location:account.php");
   }
  
   ?>
