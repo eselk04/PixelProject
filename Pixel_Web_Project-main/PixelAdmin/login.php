@@ -18,7 +18,6 @@
         header("location:pixeladmin.php");
     }
     else {
-        $_SESSION["admin"] = false;
         echo"Hatalı Şifre";
     }
  }

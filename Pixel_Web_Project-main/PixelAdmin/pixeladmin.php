@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="pixeladmin.css">
     <title>Pixel Shop</title>
 </head>
+<?php
+session_start();
+echo $_SESSION["admin"];
+if(!isset($_SESSION['admin'])){
+    $_SESSION["warninglogin"] = '<text id="warn">Account sayfasına girmek için önce giriş yapmalısınız!</text>';
+    header("location:login.php");
+    require "../common/dbconnect.php";
+  }
+  
+?>
 <body>
 
 <div class="navbar">
