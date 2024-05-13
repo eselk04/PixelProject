@@ -10,7 +10,6 @@
 </head>
 <?php
 session_start();
-echo $_SESSION["admin"];
 if(!isset($_SESSION['admin'])){
     $_SESSION["warninglogin"] = '<text id="warn">Account sayfasına girmek için önce giriş yapmalısınız!</text>';
     header("location:login.php");
@@ -19,12 +18,9 @@ if(!isset($_SESSION['admin'])){
   
 ?>
 <body>
-
-<div class="navbar">
-    <a href="#">Home</a>
-    <a href="#">Order Management</a>
-    <input type="text" placeholder="Search orders...">
-</div>
+    <?php 
+    require"navbar.php";
+    ?>
 
 <div class="content">
     <h2>Product List</h2>
@@ -72,22 +68,7 @@ if(!isset($_SESSION['admin'])){
         ?>
 
     </div>
-    <h2>Order Management</h2>
-    <div class="order-container">
-        <?php
-        // Assuming $orders is an array containing order data
-            echo "<class='order'>";
-            echo "<span>ID: </span>";
-            echo "<span>Date: </span>";
-            echo "<span>Customer:</span>";
-            echo "<a href=\"edit_order.php?id=\">Edit</a> ";
-            echo "<form method= \"post\">";
-            echo "<a href=\"delete_order.php?id=\">Delete</a>";
-            echo "</form>";
-         
-            echo "</div>";
-        ?>
-    </div>
+    
 </div>
 
 </body>

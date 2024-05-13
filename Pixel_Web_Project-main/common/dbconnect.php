@@ -6,7 +6,7 @@ $host = "localhost";
 $port = "5432"; 
 $dbname = "postgres";
 $user = "postgres";
-$password = "eselk0101";
+$password = "admin";
 
 
 
