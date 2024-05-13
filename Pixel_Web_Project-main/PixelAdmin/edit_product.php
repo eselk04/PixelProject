@@ -22,10 +22,20 @@
         $Stock = (int) $_POST['stock'];
         $queryupdate = "UPDATE PRODUCTS SET productname ='{$_POST['productname']}', stock = '{$Stock}', price = '{$_POST['price']}', categoryid = '{$_POST['category']}' WHERE productid = '{$parameters['id']}'";
         $resultupdate = pg_query($dbconn, $queryupdate);
+ 
+       $gecici_ad = $_FILES['fileToUpload']['tmp_name'];
+
+        $hedef_dizin = "../images/";
+        $dosya_adi = "product" . $parameters['id'] . ".jpg"; 
+        if(move_uploaded_file($gecici_ad, $hedef_dizin . $dosya_adi)) {
+            echo "Dosya başarıyla yüklendi ve kaydedildi.";
+        } else{
+            echo "Dosya yüklenirken bir hata oluştu.";
+        }
         header('location:edit_product.php?id='.$parameters['id']);
     }
     while ($row = pg_fetch_assoc($result)) {
-        echo '<section> <form class="product_edit"action="" method="post">
+        echo '<section> <form class="product_edit"action="" enctype="multipart/form-data" method="post">
         <label>Product Name:</label><br>
         <input type="text" name="productname" value="' . $row["productname"] . '" required><br>
         <label>Stock:</label><br>
@@ -47,7 +57,11 @@
                 <option value="'.$rowb["categoryid"].'">'. $rowb["categoryname"].'</option>';        
             }
             }
-        echo '
+        echo '<br>';
+        echo ' 
+        Select image to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+
         <input type="submit" id= "submit" name= "submit" value="Submit"> </select> </form> </section>';
     }
     ?> 
