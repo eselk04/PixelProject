@@ -1,0 +1,13 @@
+.musteri {
+  margin-bottom: 20px;
+  display: flex;
+}
+.musteri-baslik {
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+}
+.siparis {
+  margin-left: 20px;
+  display: flex;
+}

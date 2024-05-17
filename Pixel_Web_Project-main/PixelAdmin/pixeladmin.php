@@ -29,6 +29,7 @@ if(!isset($_SESSION['admin'])){
         require "../common/dbconnect.php";
        
         $query =  "SELECT * FROM products p where p.productname ilike " . " '%" . "%'" ;
+        $query = $query. " order by productid";
         $result = pg_query($dbconn, $query);
 
     if (!$result) {
