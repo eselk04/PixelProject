@@ -117,7 +117,15 @@ main{
     border-radius: 3px;
     transition: transform 0.3s;
 }
-
+.category {
+    color:var(--var--white);
+ transition: transform 0.5s ease;
+ cursor: pointer;
+}
+.category :hover 
+{   
+    color:var(--var--twice);
+}
 .product:hover{
     transform: scale(1.1);
 }

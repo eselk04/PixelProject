@@ -18,20 +18,21 @@
     <?php
     session_start();
     require "navbar.php";
- 
-
     require "../common/dbconnect.php";
- $query = "";
-$url = $_SERVER['REQUEST_URI'];
-if (strpos($url, '?') !== false) {
-$parts = parse_url($url);
-$queryy = $parts['query']; 
-parse_str($queryy, $parameters);
-$query =  "SELECT * FROM products p where p.productname ilike " . " '%". $parameters['search'] . "%'" ;
+ 
+    $query =  "SELECT * FROM products p  ";
+if (isset($_GET['search'])  ||isset($_GET['category']) ) {
+
+    $query = $query . "join categories c on c.categoryid = p.categoryid ";
+    if(isset($_GET['search'])){
+    $query = $query . "where p.productname ilike " . " '%". $_GET['search'] . "%'";}
+    if(isset($_GET['category']))
+    {
+        $query = $query . " and c.categoryname like " . " '%". $_GET['category'] . "%'";
+    }
 }
-else {
-    $query =  "SELECT * FROM products p where p.productname ilike " . " '%" . "%'" ;
-}
+
+
 
 
 

@@ -23,18 +23,19 @@
             </div> 
             <form method = "POST" id="sform" class="src active">
                <?php
-             
+               $currentUrl = $_SERVER['REQUEST_URI'];
                 if(isset($_POST["searchbutton"])) {
-                    header("location:main.php?search=" . $_POST['search']);
+                        $urlParts = parse_url($currentUrl);
+                        parse_str($urlParts['query'] ?? '', $queryParams);
+                        $queryParams['search'] = $_POST['search'];
+                        $newQueryString = http_build_query($queryParams);
+                        $newUrl = 'main.php' . '?' . $newQueryString;
+                        header("Location: $newUrl");
                 }
-               
                 if (isset($_SESSION['ID'])) {
-                    
                     echo $_SESSION['NAME'];  } 
                     else {
                     echo "<a href='login.php'>Giriş Yap</a>";  } 
-                   
-                
                ?>                
                 <input type="text" id="search" name="search" class="search" placeholder="Search...">
            
@@ -43,6 +44,7 @@
          </form>
         
                 <?php 
+               
                 if(basename($_SERVER['SCRIPT_FILENAME']) == "main.php")
                 {
                     require "../common/dbconnect.php";
@@ -53,26 +55,27 @@
                     $resultcategory = pg_query($dbconn, $querycategory);
                     while($row = pg_fetch_assoc($resultcategory))
                     {
-                        echo '<div class="category" onclick="showSubcategories(this)">
+                        echo '<div class="category" onclick="
+                        var currentUrl = window.location.href;
+                        var newUrl;
+                        if (currentUrl.indexOf(\'?\') !== -1) {
+                            if (currentUrl.indexOf(\'category=\') !== -1) {
+                                newUrl = currentUrl.replace(/category=[^&]*/, \'category=' . $row['categoryname'] . '\');
+                            } else {
+                                newUrl = currentUrl + \'&category=' . $row['categoryname'] . '\';
+                            }
+                        } else {
+                            newUrl = currentUrl + \'?category=' . $row['categoryname'] . '\';
+                        }
+                        window.location.href = newUrl;
+                    ">
                         <h3 class="category-title">'. ucfirst($row['categoryname']) . '</h3>
                     </div>';
+                  
+                    }
                     echo '      </div>
                     </div>';
-                    }
                 }
-               
-               
                 ?>
-                
-                
-                <!-- Diğer kategoriler burada eklenebilir -->
-      
-
-
-
-         <script src="navbar.js"> </script>
-         
-         
-         
-        
+         <script src="navbar.js"> </script> 
     </nav>
