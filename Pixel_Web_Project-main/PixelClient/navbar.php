@@ -39,7 +39,35 @@
                 <input type="text" id="search" name="search" class="search" placeholder="Search...">
            
                 <button type="submit" name="searchbutton" id="searchbutton" class="btn active"><i class="fas fa-search"></i> </button>
+                
          </form>
+        
+                <?php 
+                if(basename($_SERVER['SCRIPT_FILENAME']) == "main.php")
+                {
+                    require "../common/dbconnect.php";
+                    echo ' <div class="categories-container">
+                    <h2 class="category-header" onclick="toggleCategories()">Kategoriler <i class="fas fa-chevron-down"></i></h2>
+                    <div id="category-list" class="category-list">';
+                    $querycategory = "select * from categories";
+                    $resultcategory = pg_query($dbconn, $querycategory);
+                    while($row = pg_fetch_assoc($resultcategory))
+                    {
+                        echo '<div class="category" onclick="showSubcategories(this)">
+                        <h3 class="category-title">'. ucfirst($row['categoryname']) . '</h3>
+                    </div>';
+                    echo '      </div>
+                    </div>';
+                    }
+                }
+               
+               
+                ?>
+                
+                
+                <!-- Diğer kategoriler burada eklenebilir -->
+      
+
 
 
          <script src="navbar.js"> </script>
