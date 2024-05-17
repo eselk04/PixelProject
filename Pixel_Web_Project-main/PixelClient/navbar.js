@@ -1,20 +1,4 @@
-function onStartup() {
-    var categoryList = document.getElementById('category-list');
-    var icon = document.querySelector('.category-header i');
-    categoryList.style.display = "none";
-    function toggleCategories() {
-        if (categoryList.style.display === "none" || categoryList.style.display === "") {
-            categoryList.style.display = "block";
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
-        } else {
-            categoryList.style.display = "none";
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
-        }
-    }
-    icon.addEventListener('click', toggleCategories);
-}
+
 window.addEventListener('DOMContentLoaded', onStartup);
 document.addEventListener("DOMContentLoaded", function() {
     categoryList.style.display = "none";
@@ -34,3 +18,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
 });
+function onStartup() {
+    var categoryList = document.getElementById('category-list');
+    var icon = document.querySelector('.category-header i');
+    categoryList.style.display = "none";
+   
+    icon.addEventListener('click', toggleCategories);
+    function toggleCategories() {
+        if (categoryList.style.display === "none" || categoryList.style.display === "") {
+            categoryList.style.display = "block";
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        } else {
+            categoryList.style.display = "none";
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+        }
+    }
+}

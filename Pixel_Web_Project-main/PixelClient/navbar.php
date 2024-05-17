@@ -53,6 +53,28 @@
                     <div id="category-list" class="category-list">';
                     $querycategory = "select * from categories";
                     $resultcategory = pg_query($dbconn, $querycategory);
+                    echo  '<div class="category" onclick="
+                    var currentUrl = window.location.href;
+                    var newUrl;
+                    if (currentUrl.indexOf(\'?\') !== -1) {
+                        if (currentUrl.indexOf(\'category=\') !== -1) {
+                            newUrl = currentUrl.replace(/([&?])category=[^&]*(&|$)/, function(match, p1, p2) {
+                                if (p1 === \'?\') {
+                                    return p2 === \'&\' ? \'?\' : \'\';
+                                }
+                                return p2;
+                            });
+                            newUrl = newUrl.replace(/[?&]$/, \'\');
+                        } else {
+                            newUrl = currentUrl;
+                        }
+                    } else {
+                        newUrl = currentUrl;
+                    }
+                    window.location.href = newUrl;
+                ">
+                    <h3 class="category-title">All Categories</h3>
+                </div>';
                     while($row = pg_fetch_assoc($resultcategory))
                     {
                         echo '<div class="category" onclick="
