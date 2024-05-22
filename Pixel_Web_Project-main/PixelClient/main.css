@@ -130,45 +130,6 @@ main{
     width: 100%;
 }
 
-.product-info{
-    color: #eee;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.2rem;
-    padding: 0.5rem 1rem 1rem;
-    letter-spacing: 0.5px;
-}
-
-.product-info h3{
-    margin-top: 0;
-}
-
-.product-info span{
-    background-color: var(--var--background);
-    font-family:san-serif;
-    padding: 0.25rem 0.5rem;
-    border-radius: 3px;
-   
-}
-
-.overview{
-    background-color:var(--var--white);
-    padding: 2rem;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: 80%;
-    transform: translateY(101%);
-    transition: transform 0.3s ease-in;
-}
-
-
-.product:hover .overview{
-    transform: translateY(0);
-}
-
 main a {
     color:var(--var--white);
 }

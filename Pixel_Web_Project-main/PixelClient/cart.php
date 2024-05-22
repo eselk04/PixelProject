@@ -13,7 +13,7 @@
 
 session_start();
  if(!isset($_SESSION['ID'])){
-  $_SESSION["warninglogin"] = '<text id="warn">Cart sayfasına girmek için önce giriş yapmalısınız!</text>';
+  $_SESSION["warninglogin"] = '<text id="warn">You must log in before you can enter the page!</text>';
   header("location:login.php");
 }
 require "../common/dbconnect.php";
@@ -60,7 +60,7 @@ if (array_key_exists('ID', $_SESSION) && !empty($_SESSION['ID'])) {
            header("location:cart.php");
        }
        else {
-          echo "Alınacak ürün sayısı stoktakinden daha fazla olamaz.";
+          echo " <text id='warn' > The number of products to be purchased cannot be more than those in stock. </text>";
        }
     }
     if(isset($_POST['decreasebutton'. $prodcutId])) {

@@ -1,49 +1,140 @@
+/* Genel Stiller */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Navbar Stilleri */
 .navbar {
   background-color: #333;
-  padding: 10px;
-  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
-  margin-right: 10px;
+  padding: 10px 15px;
+  transition: background-color 0.3s;
+  border-radius: 5px;
 }
 
+.navbar a:hover {
+  background-color: #555;
+}
+
+.navbar input[type="text"] {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 2px solid #ddd;
+  width: 200px;
+  transition: width 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+
+.navbar input[type="text"]:focus {
+  width: 300px;
+  border-color: #555;
+  outline: none;
+}
+
+/* İçerik ve Ürün Listesi Stilleri */
 .content {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.product-container,
-.order-container {
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.product,
-.order {
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 300px;
-}
-
-.actions {
-  margin-top: 10px;
-}
-
-.actions a {
-  text-decoration: none;
-  margin-right: 10px;
-  color: #007bff;
+  gap: 15px;
 }
 
 .product {
-  width: 100%;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.product:hover {
+  background: #f1f1f1;
+  transform: scale(1.02);
+}
+
+.product span {
+  flex: 1;
+  text-align: center;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.product form {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buton Stilleri */
+.product .edit {
+  color: #fff;
+  background: linear-gradient(45deg, #4CAF50, #81C784);
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.product .edit:hover {
+  background: linear-gradient(45deg, #388E3C, #66BB6A);
+  transform: translateY(-2px);
+}
+
+.product button {
+  color: #fff;
+  background: linear-gradient(45deg, #F44336, #E57373);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.product button:hover {
+  background: linear-gradient(45deg, #D32F2F, #EF5350);
+  transform: translateY(-2px);
+}
+
+/* Uyarı Mesajı Stili */
+#warn {
+  color: #ff0000;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin: 20px 0;
 }

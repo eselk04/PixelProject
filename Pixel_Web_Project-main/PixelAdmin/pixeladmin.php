@@ -61,7 +61,7 @@ if(!isset($_SESSION['admin'])){
         echo "<span>{$row["price"]} </span>";
         
         echo "<form method= \"post\">";
-        echo "<a href=\"edit_product.php?id={$row["productid"]}\">Edit</a> ";
+        echo "<a class='edit' href=\"edit_product.php?id={$row["productid"]}\">Edit</a> ";
         echo "<button id='delete{$row["productid"]}' name='delete{$row["productid"]}' type=\'submit'>Delete</button>";
         echo "</form>";
         echo "</div>";

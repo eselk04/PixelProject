@@ -35,7 +35,7 @@
                 if (isset($_SESSION['ID'])) {
                     echo $_SESSION['NAME'];  } 
                     else {
-                    echo "<a href='login.php'>Giriş Yap</a>";  } 
+                    echo "<a href='login.php'></a>";  } 
                ?>                
                 <input type="text" id="search" name="search" class="search" placeholder="Search...">
            
@@ -49,7 +49,7 @@
                 {
                     require "../common/dbconnect.php";
                     echo ' <div class="categories-container">
-                    <h2 class="category-header" onclick="toggleCategories()">Kategoriler <i class="fas fa-chevron-down"></i></h2>
+                    <h2 class="category-header" onclick="toggleCategories()"> Categories <i class="fas fa-chevron-down"></i></h2>
                     <div id="category-list" class="category-list">';
                     $querycategory = "select * from categories";
                     $resultcategory = pg_query($dbconn, $querycategory);

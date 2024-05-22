@@ -48,7 +48,7 @@ while ($row = pg_fetch_assoc($result)) {
         
         $row = pg_fetch_assoc($resultcart);
         } else {
-           echo '<text id="warn">SEPETİNİZE ÜRÜN EKLEMEK İÇİN LÜTFEN OTURUM AÇIN.</text>';
+           echo '<text id="warn">PLEASE LOG IN TO ADD AN ITEM TO YOUR SHOPPING CART.</text>';
         }
         
       

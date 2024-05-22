@@ -14,7 +14,7 @@
 
   session_start();
   if(!isset($_SESSION['ID'])){
-    $_SESSION["warninglogin"] = '<text id="warn">Purchase sayfasına girmek için önce giriş yapmalısınız!</text>';
+    $_SESSION["warninglogin"] = '<text id="warn">You must log in before you can enter the page.!</text>';
     header("location:login.php");
   }
   require "../common/dbconnect.php";

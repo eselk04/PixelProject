@@ -18,7 +18,7 @@
         header("location:pixeladmin.php");
     }
     else {
-        echo"Hatalı Şifre";
+        echo "<text id='warn'>incorrect password! </text>";
     }
  }
 

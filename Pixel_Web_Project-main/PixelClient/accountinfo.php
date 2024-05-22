@@ -35,7 +35,7 @@ session_start();
          header("location:account.php");
       }
       else{
-        echo "Şifreler aynı değil!";
+        echo "<text id='warn' >Passwords are not the same!</text>";
       }}
 echo '
 <section>

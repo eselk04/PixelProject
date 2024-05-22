@@ -52,12 +52,12 @@ while ($row = pg_fetch_assoc($result)) {
     $productID = $row['productid'];
     $productName = $row['productname'];
     $productPrice = $row['price'];
-    echo "<div class=\"product\">";
-    echo "<a href='product.php?id=$productID'><img style=\"width: 100%; height: 50%;\" src=\"../images/product$productID.jpg\" alt=\"$productName\"></a>";
+    echo "<a href='product.php?id=$productID'><div class=\"product\">";
+    echo "<img style=\"width: 100%; height: 50%;\" src=\"../images/product$productID.jpg\" alt=\"$productName\">";
   
     echo "    <h3>$productName</h3>";
     echo "    <span class=\"\${getClassByRate($productPrice}\">$productPrice</span>";
-    echo "</div>";
+    echo "</div></a>";
 }
 echo "</main>";
 
