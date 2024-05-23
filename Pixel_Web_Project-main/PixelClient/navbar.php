@@ -17,7 +17,16 @@
              <div class="list">  
                 <ul>
                     <li><a href="main.php"><i class="fa-solid fa-house"></i> Home</a></li>
-                    <li><a href="account.php"><i class="fa-solid fa-user"></i> Account</a></li>
+                    <?php
+                    echo '  <li><a href="account.php"><i class="fa-solid fa-user"></i>';
+                    if(isset($_SESSION['ID']))
+                    {  echo " Account";}
+                    else{ echo " Log In";}
+                  
+
+                    echo '</a></li>';
+                    ?>
+                   
                     <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Shopping &nbsp; Cart</a></li>     
                 </ul>
             </div> 

@@ -18,6 +18,7 @@
     <?php
     session_start();
     require "navbar.php";
+    require "../common/loginwarning.php";
     require "../common/dbconnect.php";
  
     $query =  "SELECT * FROM products p  ";
