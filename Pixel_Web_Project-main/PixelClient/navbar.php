@@ -40,11 +40,7 @@
                         $newQueryString = http_build_query($queryParams);
                         $newUrl = 'main.php' . '?' . $newQueryString;
                         header("Location: $newUrl");
-                }
-                if (isset($_SESSION['ID'])) {
-                    echo $_SESSION['NAME'];  } 
-                    else {
-                    echo "<a href='login.php'></a>";  } 
+                } 
                ?>                
                 <input type="text" id="search" name="search" class="search" placeholder="Search...">
            
