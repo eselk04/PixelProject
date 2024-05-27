@@ -1,7 +1,7 @@
 /* order_management.css */
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #ececec;
@@ -21,7 +21,7 @@ body {
   font-size: 28px;
   margin-bottom: 20px;
   color: #333333;
-  border-bottom: 2px solid #007BFF;
+  border-bottom: 2px solid #007bff;
   padding-bottom: 10px;
   display: inline-block;
 }
@@ -43,18 +43,20 @@ body {
 .musteri-baslik {
   font-size: 22px;
   margin-bottom: 15px;
-  color: #007BFF;
+  color: #007bff;
   font-weight: bold;
 }
 
 .siparis {
   margin-bottom: 15px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .siparis button {
   width: 100%;
   padding: 12px;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -63,6 +65,16 @@ body {
   transition: background-color 0.3s, transform 0.2s;
 }
 
+.siparis #approve {
+  vertical-align: middle;
+  width: 5%;
+}
+
+.siparis #approve img {
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
 .siparis button:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
@@ -71,4 +83,9 @@ body {
 .siparis button:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+#order_button {
+  justify-content: space-between;
+  display: flex;
 }

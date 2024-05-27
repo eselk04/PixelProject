@@ -6,6 +6,7 @@
 </head>
 <div class="product-container">
         <?php
+        require '../common/tarihformatla.php';
         require "navbar.php";
         require "../common/dbconnect.php";
        
@@ -27,12 +28,17 @@
         
             <div class="musteri">
                 <div class="musteri-baslik">'.$row["username"].'</div>';
-            $queryorder = "select * from orders o join products p on p.productid=o.productid  where o.userid='" . $row["userid"] . "' ";  
+            $queryorder = 'SELECT o.userid , o.productid ,p.productname ,o.orderdate, COUNT(o.productid) AS quantity
+            FROM orders o
+            JOIN products p ON p.productid = o.productid
+          
+            GROUP by o.userid, o.productid ,p.productname, o.orderdate';
+            
             $resultorder = pg_query($dbconn, $queryorder);
             while($rowb=pg_fetch_assoc($resultorder))
             {
                 echo '
-                <form action=""> <div class="siparis"><button>' . $rowb["productname"] .'</button></div>
+                <form action=""> <div class="siparis"><button><div id="order_button"><a>' . $rowb["productname"] .'</a><a>'. $rowb["quantity"] .' adet</a><a>Sipariş Tarihi: '.tarihFormatla($rowb["orderdate"]) .'</a></div> </button><div id="approve"> <button id="onay"><img src="../images/approve_button.png"/> </button> </div><div id="approve"> <button id="cancel"><img src="../images/cancel_button.png"/> </button> </div></div>
                 ';
 
             }
