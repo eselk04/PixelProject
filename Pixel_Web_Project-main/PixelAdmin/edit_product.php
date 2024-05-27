@@ -20,7 +20,7 @@
     $result = pg_query($dbconn, $query);
     if (isset($_POST['submit'])) {
         $Stock = (int) $_POST['stock'];
-        $queryupdate = "UPDATE PRODUCTS SET productname ='{$_POST['productname']}', stock = '{$Stock}', price = '{$_POST['price']}', categoryid = '{$_POST['category']}' WHERE productid = '{$parameters['id']}'";
+        $queryupdate = "UPDATE PRODUCTS SET productname ='{$_POST['productname']}', stock = '{$Stock}', price = '{$_POST['price']}', categoryid = '{$_POST['category']}', description = '{$_POST['description']}' WHERE productid = '{$parameters['id']}'";
         $resultupdate = pg_query($dbconn, $queryupdate);
  
        $gecici_ad = $_FILES['fileToUpload']['tmp_name'];
@@ -40,6 +40,8 @@
         <input type="text" name="productname" value="' . $row["productname"] . '" required><br>
         <label>Stock:</label><br>
         <input type="text" name="stock" value="' . (int) $row["stock"] . '" required><br>
+        <label>Description:</label><br>
+        <input type="text" name="description" value="'.$row["description"] . '" required><br>
         <label>Price:</label><br>
         <input name="price" value="' . $row["price"] . '" required><br><br>';
         $querycategory = "SELECT * FROM categories";

@@ -23,6 +23,7 @@ if(!isset($_SESSION['admin'])){
     ?>
 
 <div class="content">
+    <a class = "add" href='add_product.php'>Add Product</a>
     <h2>Product List</h2>
     <div class="product-container">
         <?php
