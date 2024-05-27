@@ -57,16 +57,26 @@
     </nav>
 
     <div class="account">
-        <h2>Payment Information</h2>
-        <form method="post">
-            <label for="cart-no">Credit Card Number:</label>
-            <input type="text" id="cart-no" name="cart-no" placeholder="1234 5678 9101 1121" required><br><br>
-            <label for="username">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="addres">Address:</label>
-            <input type="text" id="address" name="address" required></input><br><br>
-            <input type="submit" id="buy" name="buy" value="Order">
-        </form>
-    </div>
+    <h2>Payment Information</h2>
+    <form method="post">
+        <label for="cart-no">Credit Card Number:</label>
+        <input type="text" id="cart-no" name="cart-no" placeholder="1234 5678 9101 1121" required><br><br>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="margin-left:1%;">
+                <label for="expiry">Expiration Date</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM/YY" style="width: 150px;" required>
+            </div>
+            <div style="margin-right: 1%;">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" style="width: 150px;" required>
+            </div>
+        </div><br>
+        <label for="username">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="addres">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+        <input type="submit" id="buy" name="buy" value="Order">
+    </form>
+</div>
 </body>
 </html>
