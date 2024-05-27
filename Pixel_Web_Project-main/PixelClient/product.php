@@ -37,19 +37,25 @@ while ($row = pg_fetch_assoc($result)) {
     $productDescription = $row['description'];
     $productPrice = $row['price'];
     $productStock  = $row['stock'];
-
     if (isset($_POST['execute'])) {
-        if (isset($_SESSION['ID'])) {
-            $querycart = 'INSERT INTO carts (user_id, product_id)
-        VALUES (' . '\'' . $_SESSION['ID'] . '\','.'\''. $parameters['id'] . '\')' ;
-        $resultcart = pg_query($dbconn, $querycart);
-       
-       
-        
-        $row = pg_fetch_assoc($resultcart);
-        } else {
-           echo '<text id="warn">PLEASE LOG IN TO ADD AN ITEM TO YOUR SHOPPING CART.</text>';
+        $amount = $_POST["getcounter"];
+        while($amount > 0)
+        {
+            if (isset($_SESSION['ID'])) {
+                $querycart = 'INSERT INTO carts (user_id, product_id)
+            VALUES (' . '\'' . $_SESSION['ID'] . '\','.'\''. $parameters['id'] . '\')' ;
+            $resultcart = pg_query($dbconn, $querycart);
+            $amount -= 1;
+           
+           
+            
+            $row = pg_fetch_assoc($resultcart);
+            } else {
+               echo '<text id="warn">PLEASE LOG IN TO ADD AN ITEM TO YOUR SHOPPING CART.</text>';
+               break;
+            }
         }
+      
         
       
         
@@ -62,10 +68,17 @@ while ($row = pg_fetch_assoc($result)) {
     echo "<img id=\"product-image\" src=\"../images/product" . $parameters['id'] .  ".jpg\" alt=\"Ürün Fotoğrafı\">";
     echo " <p id=\"product-price\">Price:" . $productPrice .  " TL</p>";
     echo " <p id=\"product-description\">Kısa Açıklama:" . $productDescription .  "</p>";
-   echo " <form method=\"post\">";
-   echo "  <button type = \"submit\" name =\"execute\"  id=\"add-to-cart\" class=\"add-to-cart\">Add to cart</button>";
-  echo "</form>";
+   echo " <div class='cartopt'><form method=\"post\">";
+   echo "<button type = \"submit\" name =\"execute\"  id=\"add-to-cart\" class=\"add-to-cart\">Add to cart</button><input type='text'name='getcounter' id='getcounter'/>";
+   echo "</form>"; 
+   echo '&nbsp<div class="counter">
+   <button id="decrease">-</button>
+   <input type="text" id="count" value="1" readonly>
+   <button id="increase" class="increase">+</button>
+</div> </div><div id="warningContainer"></div>';
+  
    echo "</div>";
+   echo "<text id='stock'>".  $productStock."</text>"; 
 }
 
 

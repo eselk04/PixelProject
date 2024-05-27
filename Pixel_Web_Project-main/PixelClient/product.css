@@ -8,6 +8,61 @@
     --var--fourth:#000007;
     
 }
+.counter {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 10%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: block;
+    width: 100px;
+    margin-top: 20px;
+    
+    
+}
+.counter button {
+    background-color: rgb(90, 93, 144);
+    border: none;
+    color: white;
+    width: 26%;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10%;
+    
+    transition: background-color 0.3s;
+}
+#stock {
+    visibility: hidden;
+    width: 0%;
+    height: 0%;
+}
+#getcounter{
+ visibility: hidden;
+ width: 0px;
+ height: 0px;
+}
+.cartopt
+{
+    display: flex;
+    justify-content: space-between;
+}
+.counter button:hover {
+    background-color: #0056b3;
+}
+.counter input {
+    width: 40px;
+    text-align: center;
+    border: none;
+    font-size: 20px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+}
+.counter .increase {
+    border-radius: 0 5px 5px 0;}
 
 *{
     box-sizing:border-box;
@@ -160,8 +215,9 @@ ul {
     margin: 20px auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
 }
 h1, p {
     margin: 10px 0;
