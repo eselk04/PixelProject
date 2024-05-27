@@ -24,8 +24,8 @@ increaseButton.addEventListener('click', () => {
     if (!existingWarning) {
         const warningMessage = document.createElement('div');
         warningMessage.textContent = "You cannot add more items than the stock limit.";
-        warningMessage.style.color = "red";
-        warningMessage.id = "warningMessage"; 
+        warningMessage.style.color = "white";
+        warningMessage.id = "warn"; 
         document.getElementById('warningContainer').appendChild(warningMessage);
     }}
 });

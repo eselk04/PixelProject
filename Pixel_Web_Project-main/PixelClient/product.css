@@ -23,7 +23,7 @@
     
 }
 .counter button {
-    background-color: rgb(90, 93, 144);
+    background-color:var(--var--third);
     border: none;
     color: white;
     width: 26%;
@@ -50,7 +50,8 @@
     justify-content: space-between;
 }
 .counter button:hover {
-    background-color: #0056b3;
+    background-color: var(--var--fourth);
+    color: var(--var--one);
 }
 .counter input {
     width: 40px;
