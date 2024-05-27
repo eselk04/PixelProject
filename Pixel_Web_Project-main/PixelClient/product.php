@@ -60,7 +60,7 @@ while ($row = pg_fetch_assoc($result)) {
     echo" <div class=\"shp\">";
     echo "<h1 id=\"product-name\">" . $productName  . "</h1>";
     echo "<img id=\"product-image\" src=\"../images/product" . $parameters['id'] .  ".jpg\" alt=\"Ürün Fotoğrafı\">";
-    echo " <p id=\"product-price\">Price:" . $productPrice .  "</p>";
+    echo " <p id=\"product-price\">Price:" . $productPrice .  " TL</p>";
     echo " <p id=\"product-description\">Kısa Açıklama:" . $productDescription .  "</p>";
    echo " <form method=\"post\">";
    echo "  <button type = \"submit\" name =\"execute\"  id=\"add-to-cart\" class=\"add-to-cart\">Add to cart</button>";

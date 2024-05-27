@@ -18,6 +18,7 @@
     <?php
     session_start();
     require "navbar.php";
+    require "../common/loginwarning.php";
     require "../common/dbconnect.php";
  
     $query =  "SELECT * FROM products p  ";
@@ -56,7 +57,7 @@ while ($row = pg_fetch_assoc($result)) {
     echo "<img style=\"width: 100%; height: 50%;\" src=\"../images/product$productID.jpg\" alt=\"$productName\">";
   
     echo "    <h3>$productName</h3>";
-    echo "    <span class=\"\${getClassByRate($productPrice}\">$productPrice</span>";
+    echo "    <span class=\"\${getClassByRate($productPrice}\">$productPrice TL</span>";
     echo "</div></a>";
 }
 echo "</main>";

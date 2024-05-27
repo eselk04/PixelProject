@@ -32,6 +32,22 @@
     transform: translate(-50%, -50%);
     animation: fadeInOut 5s ease-out forwards;
 }
+#success {
+    background: green;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0.9;
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeInOut 5s ease-out forwards;
+}
 
 @keyframes fadeInOut {
     0% {

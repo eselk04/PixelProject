@@ -12,6 +12,7 @@
 <body>
     
   <?php 
+  session_start();
   require "navbar.php";
   ?>
     <section>   
@@ -50,7 +51,7 @@
         while ($row = pg_fetch_assoc($resultcheck)) {
             if($row['result'] == 0)
             {
-                echo "Bu email ile zaten bir hesap açılmış.";
+                echo "<text id='warn'>Bu email ile zaten bir hesap açılmış.</text>";
             }
             else{
                 $username = $_POST['username'];
@@ -60,13 +61,14 @@
                 
                 $query = 'INSERT INTO users (username,password,email) VALUES (' . '\''.  $username .'\',\''. $password .'\',\''. $email . '\')';
                 $result = pg_query($dbconn, $query);
-                if ($result) {
+            }
+            if ($result) {
                     
-                    echo "Kullanıcı başarıyla eklendi.";
-                }
-                else {
-                    echo "Kullanıcı eklenirken bir hata oluştu: " . pg_last_error();
-                }
+                $_SESSION["registerinfo"] =  "<text id='success'>Sucessfully registered.</text>";
+                header("location:login.php");
+            }
+            else {
+                echo "Kullanıcı eklenirken bir hata oluştu: " . pg_last_error();
             }
         }
     }

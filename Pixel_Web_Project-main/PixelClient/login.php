@@ -13,11 +13,8 @@
  <?php
  session_start();
  require "navbar.php";
- if(isset($_SESSION["warninglogin"]))
- {
-  echo $_SESSION["warninglogin"];
-  unset($_SESSION["warninglogin"]);
- }
+ require "../common/loginwarning.php";
+ require "../common/registerwarning.php";
  if($_SERVER["REQUEST_METHOD"] == "POST") {
  
  
@@ -29,10 +26,17 @@
        $_SESSION['NAME'] =  $row['username'];
        $_SESSION['EMAIL'] = $row['email']; 
        $_SESSION['CDAT'] = $row['createdat'];
-     
-     header("location:main.php");
      }
- 
+     if(isset($_SESSION['ID']))
+     {
+        $_SESSION['logininfo'] = "<text id='success'>You've logged in successsfully.</text>";
+        header("location:main.php");
+     }
+     else {
+        $_SESSION['logininfo'] = "<text id='warn'>Wrong e-mail or password!</text>";
+        header("location:login.php");
+     }
+   
  
  }
  
