@@ -79,7 +79,7 @@ if (array_key_exists('ID', $_SESSION) && !empty($_SESSION['ID'])) {
     if(isset($_POST["order"]))
 {
 if(!$totalvalue>0)
-echo "Sepetiniz boş!";
+echo "<text id='warn'>Sepetiniz boş!</text>";
 else 
 {
 header("location:purchase.php");

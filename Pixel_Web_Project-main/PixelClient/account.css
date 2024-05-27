@@ -224,15 +224,18 @@ p{
 }
 
 .status.preparing {
-    background-color: #ffc107;
-    color: #000;
+    background-color: green;
+    color: var(--var--white);
 }
 
 .status.delivered {
     background-color: #28a745;
     color: var(--var--white);
 }
-
+.status.approved {
+    background-color: #ffc107;
+    color: #000;
+}
 .status.cancelled {
     background-color: #dc3545;
     color: var(--var--white);

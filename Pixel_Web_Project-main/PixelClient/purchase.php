@@ -31,7 +31,7 @@
     while ($row = pg_fetch_assoc($result)) {
 
         $queryorder = "insert into orders (description,adress,userid,name,productid,totalamount,status) values" . "('" .$description . "','" . $address . "','" 
-        . $_SESSION['ID'] . "','" . $name . "','" . $row['productid'] . "','" .  $row['quantity'] . "', 'Preparing')";
+        . $_SESSION['ID'] . "','" . $name . "','" . $row['productid'] . "','" .  $row['quantity'] . "', 'Approved')";
         pg_query($dbconn , $queryorder);
         $querydelete = "delete from carts where user_id=" . $_SESSION["ID"];
         pg_query($dbconn , $querydelete);

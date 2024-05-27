@@ -8,6 +8,6 @@
 </head>
 <div class="navbar">
     <a href="pixeladmin.php">Home</a>
-    <a href="order_managment.php">Order Management</a>
+    <a href="order_management.php">Order Management</a>
     <input type="text" placeholder="Search orders...">
 </div>
