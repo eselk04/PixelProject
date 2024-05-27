@@ -69,7 +69,7 @@ while ($row = pg_fetch_assoc($result)) {
     echo " <p id=\"product-price\">Price:" . $productPrice .  " TL</p>";
     echo " <p id=\"product-description\">Kısa Açıklama:" . $productDescription .  "</p>";
    echo " <div class='cartopt'><form method=\"post\">";
-   echo "<button type = \"submit\" name =\"execute\"  id=\"add-to-cart\" class=\"add-to-cart\">Add to cart</button><input type='text'name='getcounter' id='getcounter'/>";
+   echo "<button type = \"submit\" name =\"execute\"  id=\"add-to-cart\" class=\"add-to-cart\">Add to cart</button><input value=1 type='text'name='getcounter' id='getcounter'/>";
    echo "</form>"; 
    echo '&nbsp<div class="counter">
    <button id="decrease">-</button>
