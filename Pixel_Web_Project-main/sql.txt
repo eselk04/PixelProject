@@ -108,3 +108,25 @@ ALTER TABLE public.products ALTER COLUMN categoryid SET NOT NULL;
 ALTER TABLE public.orders ADD status varchar NOT NULL;
 INSERT INTO public.categories (categoryname) VALUES
 	 ('phones');
+INSERT INTO products (productname, description, price, stock, categoryid)
+VALUES
+    ('Samsung Galaxy S21', 'High-end smartphone with powerful performance.', 799.99, 50, 2),
+    ('Apple iPhone 13', 'Latest iPhone with A15 Bionic chip and advanced camera features.', 999.99, 75, 2),
+    ('Google Pixel 6', 'Experience the best of Google with Pixel 6.', 699.99, 60, 2),
+    ('OnePlus 9 Pro', 'Flagship phone with fast charging and great camera.', 899.99, 40, 2),
+    ('Xiaomi Mi 11', 'Affordable flagship with impressive specs.', 749.99, 80, 2),
+    ('Sony Xperia 1 III', 'Professional-grade camera in a smartphone.', 1199.99, 30, 2),
+    ('Huawei P40 Pro', 'High-quality camera and sleek design.', 899.99, 50, 2),
+    ('Oppo Find X3', 'Innovative features and stylish design.', 799.99, 55, 2),
+    ('Motorola Edge+', 'Advanced features with a competitive price.', 799.99, 45, 2),
+    ('Nokia 8.3 5G', 'Durable and reliable 5G smartphone.', 699.99, 70, 2),
+    ('LG Velvet', 'Elegant design with high performance.', 599.99, 65, 2),
+    ('Asus ROG Phone 5', 'Ultimate gaming phone with top-notch specs.', 999.99, 35, 2),
+    ('Realme GT', 'Flagship killer with high performance.', 499.99, 90, 2),
+    ('Vivo X60 Pro', 'Professional photography features in a smartphone.', 799.99, 50, 2),
+    ('ZTE Axon 30', 'Affordable 5G phone with great performance.', 599.99, 85, 2),
+    ('Honor 50', 'Stylish design with powerful performance.', 699.99, 60, 2),
+    ('Lenovo Legion Phone Duel', 'Gaming phone with dual cooling system.', 899.99, 40, 2),
+    ('Alcatel 3L', 'Budget phone with essential features.', 149.99, 100, 2),
+    ('HTC U12+', 'Flagship phone with innovative features.', 799.99, 50, 2),
+    ('BlackBerry KEY2', 'Secure smartphone with physical keyboard.', 649.99, 55, 2);
