@@ -12,6 +12,7 @@
 <body>
  <?php
  session_start();
+ require "../common/loginwarning.php";
  if (isset($_POST["admin_login"])) {
     if ($_POST["password"] == "admin") {
         $_SESSION["admin"] = true;
@@ -30,8 +31,7 @@
             <h1>Admin Panel</h1>
             <form method = "POST">
                 <div class="form-control">
-                    <input type="text" id="email" name="email" required>
-                    <label >Name</label>
+                    
                 </div>
                 <div class="form-control">
                     <input type="password" id="password" name="password" required>

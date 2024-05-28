@@ -126,6 +126,23 @@ h2 {
 }
 .add {
   color: #fff;
+  background: darkslategray;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: 1em;
+  height: 100%;
+}
+.topbuttons{
+  display: flex;
+  justify-content: space-between;
+}
+.logout {
+  color: #fff;
   background: linear-gradient(45deg, #F44336, #E57373);
   border: none;
   padding: 8px 16px;
@@ -138,6 +155,11 @@ h2 {
   height: 100%;
 }
 .add:hover {
+  background: darkcyan;
+  transform: translateY(-2px);
+  
+}
+.logout:hover {
   background: linear-gradient(45deg, #D32F2F, #EF5350);
   transform: translateY(-2px);
   

@@ -9,13 +9,12 @@
     <title>Pixel Shop</title>
 </head>
 <?php
-session_start();
-if(!isset($_SESSION['admin'])){
-    $_SESSION["warninglogin"] = '<text id="warn">Account sayfasına girmek için önce giriş yapmalısınız!</text>';
+require "logincontrol.php";
+  if(isset($_POST["logout"]))
+  {
+    unset($_SESSION['admin']);
     header("location:login.php");
-    require "../common/dbconnect.php";
   }
-  
 ?>
 <body>
     <?php 
@@ -23,8 +22,9 @@ if(!isset($_SESSION['admin'])){
     ?>
 
 <div class="content">
-    <a class = "add" href='add_product.php'>Add Product</a>
+<form method="post" class ="topbuttons"> <a class = "add" href='add_product.php'>Add Product</a>  <button name="logout" class = "logout" >Logout</button></form>
     <h2>Product List</h2>
+  
     <div class="product-container">
         <?php
         require "../common/dbconnect.php";

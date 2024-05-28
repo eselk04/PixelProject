@@ -10,7 +10,7 @@
     <?php
     require "../common/dbconnect.php";
     require "navbar.php";
-    
+    require "logincontrol.php";
 
     
  
@@ -55,12 +55,13 @@
         while ($rowb = pg_fetch_assoc($resultcategory)) {
            echo ' <option value="'.$rowb["categoryid"].'">'. $rowb["categoryname"].'</option>';
             }
-        echo '<br>';
-        echo ' 
-        Select image to upload:
+        echo '</select><br>';
+        echo '<label> Select image to upload:</label>
+        
     <input type="file" name="fileToUpload" id="fileToUpload">
 
-        <input type="submit" id= "submit" name= "submit" value="Submit"> </select> </form> </section>';
+        <input type="submit" id= "submit" name= "submit" value="Submit"> </select> </form> </section>
+       ';
     
     ?> 
     

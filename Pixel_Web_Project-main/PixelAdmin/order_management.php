@@ -8,6 +8,7 @@
         <?php
         require '../common/tarihformatla.php';
         require "navbar.php";
+        require "logincontrol.php";
         require "../common/dbconnect.php";
        
         $query =  "SELECT * FROM users where userid in (select userid from orders)";

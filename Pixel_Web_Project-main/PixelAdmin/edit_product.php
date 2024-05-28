@@ -10,6 +10,7 @@
     <?php
     require "../common/dbconnect.php";
     require "navbar.php";
+    require "logincontrol.php";
     $url = $_SERVER['REQUEST_URI'];
 
     $parts = parse_url($url);
@@ -59,9 +60,9 @@
                 <option value="'.$rowb["categoryid"].'">'. $rowb["categoryname"].'</option>';        
             }
             }
-        echo '<br>';
+        echo '</select><br>';
         echo ' 
-        Select image to upload:
+        <label>Image:</label> 
     <input type="file" name="fileToUpload" id="fileToUpload">
 
         <input type="submit" id= "submit" name= "submit" value="Submit"> </select> </form> </section>';
