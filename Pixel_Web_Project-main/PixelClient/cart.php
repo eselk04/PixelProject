@@ -12,18 +12,13 @@
 <?php
 session_start();
 if (!isset($_SESSION['ID'])) {
-    $_SESSION["warninglogin"] = '<text id="warn">You must log in before you can enter the page!</text>';
+    $_SESSION["logininfo"] = '<text id="warn">You must log in before you can enter the page!</text>';
     header("location:login.php");
-    exit();
 }
 
 require "../common/dbconnect.php";
 require "navbar.php";
 
-if (!array_key_exists('ID', $_SESSION) || empty($_SESSION['ID'])) {
-    header("location:login.php");
-    exit();
-}
 
 $totalvalue = 0;
 $redirect = false;
@@ -100,7 +95,7 @@ while ($row = pg_fetch_assoc($result)) {
           header("location:purchase.php");
           exit();
       } else {
-          $messages[] = "Sepetiniz boş!";
+          $messages[] = "Your cart is empty";
       }
   }
 }

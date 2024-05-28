@@ -57,7 +57,7 @@ while ($row = pg_fetch_assoc($result)) {
     echo "<img  src=\"../images/product$productID.jpg\" alt=\"$productName\">";
   
     echo "    <h3>$productName</h3>";
-    echo "    <span class=\"\${getClassByRate($productPrice}\">$productPrice TL</span>";
+    echo "    <span class=\"\${getClassByRate($productPrice}\"> $ $productPrice</span>";
     echo "</div></a>";
 }
 echo "</main>";
